@@ -123,3 +123,54 @@ Route::get('/special-effects/backward', function () {
 Route::get('/special-effects/binary-to-text', function () {
     return view('special-effects.binary-to-text');
 });
+Route::get('/special-effects/bold', function () {
+    return view('special-effects.bold-text');
+});
+Route::get('/special-effects/bold-gothic', function () {
+    return view('special-effects.bold-text');
+});
+Route::get('/special-effects/bold-italic', function () {
+    return view('special-effects.bold-text');
+});
+Route::get('/special-effects/circled', function () {
+    return view('special-effects.circled-text');
+});
+Route::get('/special-effects/cursive-bold', function () {
+    return view('special-effects.cursive-bold');
+});
+Route::get('/special-effects/flip-text', function () {
+    return view('special-effects.flip-text');
+});
+Route::get('/special-effects/flip-words', function () {
+    return view('special-effects.flip-text');
+});
+Route::get('/special-effects/gothic', function () {
+    return view('special-effects.gothic');
+});
+Route::get('/special-effects/italic', function () {
+    return view('special-effects.italic');
+});
+Route::get('/special-effects/outline', function () {
+    return view('special-effects.outline');
+});
+Route::get('/special-effects/parentheses', function () {
+    return view('special-effects.parentheses');
+});
+Route::get('/special-effects/pascal-case', function () {
+    return view('special-effects.pascal-case');
+});
+Route::get('/special-effects/reverse-words', function () {
+    return view('special-effects.reverse-words');
+});
+Route::get('/special-effects/slashed', function () {
+    return view('special-effects.slashed');
+});
+Route::get('/special-effects/snake-case', function () {
+    return view('special-effects.snake-case');
+});
+Route::get('/special-effects/upside-down', function () {
+    return view('special-effects.upside-down');
+});
+Route::get('/special-effects/wide-text', function () {
+    return view('special-effects.wide-text');
+});

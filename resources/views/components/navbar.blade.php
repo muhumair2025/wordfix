@@ -45,7 +45,6 @@
                 { name: 'Comma to Column', url: '/modify/comma-to-column' },
                 { name: 'Convert Double Space To Single Space', url: '/modify/double-space-to-single' },
                 { name: 'Convert Single Space To Double Space', url: '/modify/single-space-to-double' },
-                { name: 'Convert Text with Commas To Lines', url: '/modify/commas-to-lines' },
                 { name: 'Keep First Characters Of Each Line', url: '/modify/keep-first-characters' },
                 { name: 'Keep Last Characters Of Each Line', url: '/modify/keep-last-characters' },
                 { name: 'Keep Lines Containing A Certain Word', url: '/modify/keep-lines-with-word' },

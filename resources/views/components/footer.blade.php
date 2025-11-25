@@ -112,7 +112,6 @@
                     <li><a href="/modify/comma-to-column" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Comma to Column</a></li>
                     <li><a href="/modify/double-space-to-single" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Convert Double Space To Single Space</a></li>
                     <li><a href="/modify/single-space-to-double" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Convert Single Space To Double Space</a></li>
-                    <li><a href="/modify/commas-to-lines" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Convert Text with Commas To Lines</a></li>
                     <li><a href="/modify/keep-first-characters" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Keep First Characters Of Each Line</a></li>
                     <li><a href="/modify/keep-last-characters" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Keep Last Characters Of Each Line</a></li>
                     <li><a href="/modify/keep-lines-with-word" class="text-xs md:text-sm text-gray-600 hover:text-blue-600 transition-colors">Keep Lines Containing A Certain Word</a></li>

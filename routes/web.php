@@ -62,3 +62,41 @@ Route::get('/formatter/json-beautifier', function () {
 Route::get('/formatter/sql-beautifier', function () {
     return view('formatter.sql-beautifier');
 });
+
+// Modify Tools Routes
+Route::get('/modify/add-number-to-each-line', function () {
+    return view('modify.add-number-to-each-line');
+});
+Route::get('/modify/add-string-after-characters', function () {
+    return view('modify.add-string-after-characters');
+});
+Route::get('/modify/add-text-to-each-line', function () {
+    return view('modify.add-text-to-each-line');
+});
+Route::get('/modify/column-to-comma', function () {
+    return view('modify.column-to-comma');
+});
+Route::get('/modify/comma-to-column', function () {
+    return view('modify.column-to-comma'); // Uses same file - has both features
+});
+Route::get('/modify/commas-between-numbers', function () {
+    return view('modify.commas-between-numbers');
+});
+Route::get('/modify/double-space-to-single', function () {
+    return view('modify.double-space-to-single');
+});
+Route::get('/modify/single-space-to-double', function () {
+    return view('modify.double-space-to-single'); // Uses same file - has both features
+});
+Route::get('/modify/keep-first-characters', function () {
+    return view('modify.keep-first-characters');
+});
+Route::get('/modify/keep-last-characters', function () {
+    return view('modify.keep-last-characters');
+});
+Route::get('/modify/keep-lines-with-word', function () {
+    return view('modify.keep-lines-with-word');
+});
+Route::get('/modify/keep-lines-with-words', function () {
+    return view('modify.keep-lines-with-words');
+});

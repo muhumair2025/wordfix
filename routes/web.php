@@ -100,3 +100,18 @@ Route::get('/modify/keep-lines-with-word', function () {
 Route::get('/modify/keep-lines-with-words', function () {
     return view('modify.keep-lines-with-words');
 });
+Route::get('/modify/merge-text-lists', function () {
+    return view('modify.merge-text-lists');
+});
+Route::get('/modify/number-to-words', function () {
+    return view('modify.number-to-words');
+});
+Route::get('/modify/prefix-suffix', function () {
+    return view('modify.prefix-suffix');
+});
+Route::get('/modify/position-text-addition', function () {
+    return view('modify.position-text-addition');
+});
+Route::get('/modify/trim-text', function () {
+    return view('modify.trim-text');
+});

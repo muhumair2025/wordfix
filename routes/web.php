@@ -45,3 +45,20 @@ Route::get('/counter/count-each-line', function () {
 Route::get('/counter/bracket-tag-counter', function () {
     return view('counter.bracket-tag-counter');
 });
+
+// Formatter Tools Routes
+Route::get('/formatter/css-beautifier', function () {
+    return view('formatter.css-beautifier');
+});
+Route::get('/formatter/html-beautifier', function () {
+    return view('formatter.html-beautifier');
+});
+Route::get('/formatter/javascript-beautifier', function () {
+    return view('formatter.javascript-beautifier');
+});
+Route::get('/formatter/json-beautifier', function () {
+    return view('formatter.json-beautifier');
+});
+Route::get('/formatter/sql-beautifier', function () {
+    return view('formatter.sql-beautifier');
+});

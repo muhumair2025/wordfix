@@ -115,3 +115,11 @@ Route::get('/modify/position-text-addition', function () {
 Route::get('/modify/trim-text', function () {
     return view('modify.trim-text');
 });
+
+// Special Effects Tools Routes
+Route::get('/special-effects/backward', function () {
+    return view('special-effects.backward');
+});
+Route::get('/special-effects/binary-to-text', function () {
+    return view('special-effects.binary-to-text');
+});

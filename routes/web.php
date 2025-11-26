@@ -308,3 +308,32 @@ Route::get('/replace/text-between', function () {
 Route::get('/replace/search-replace', function () {
     return view('replace.search-replace');
 });
+
+// Conversion Tools Routes
+Route::get('/conversions/base64-decoder', function () {
+    return view('conversions.base64-decoder');
+});
+Route::get('/conversions/base64-encoder', function () {
+    return view('conversions.base64-encoder');
+});
+Route::get('/conversions/date', function () {
+    return view('conversions.date');
+});
+Route::get('/conversions/decimal-to-string', function () {
+    return view('conversions.decimal-to-string');
+});
+Route::get('/conversions/html-entities', function () {
+    return view('conversions.html-entities');
+});
+Route::get('/conversions/string-to-decimal', function () {
+    return view('conversions.string-to-decimal');
+});
+Route::get('/conversions/text-to-binary', function () {
+    return view('conversions.text-to-binary');
+});
+Route::get('/conversions/url-decode', function () {
+    return view('conversions.url-decode');
+});
+Route::get('/conversions/url-encode', function () {
+    return view('conversions.url-encode');
+});

@@ -337,3 +337,44 @@ Route::get('/conversions/url-decode', function () {
 Route::get('/conversions/url-encode', function () {
     return view('conversions.url-encode');
 });
+
+// Generator Tools Routes
+Route::get('/generators/lorem-ipsum', function () {
+    return view('generators.lorem-ipsum');
+});
+Route::get('/generators/color', function () {
+    return view('generators.color');
+});
+Route::get('/generators/date', function () {
+    return view('generators.date');
+});
+Route::get('/generators/email', function () {
+    return view('generators.email');
+});
+Route::get('/generators/ip', function () {
+    return view('generators.ip');
+});
+Route::get('/generators/ipv6', function () {
+    return view('generators.ipv6');
+});
+Route::get('/generators/mac', function () {
+    return view('generators.mac');
+});
+Route::get('/generators/number', function () {
+    return view('generators.number');
+});
+Route::get('/generators/user-agent', function () {
+    return view('generators.user-agent');
+});
+Route::get('/generators/password', function () {
+    return view('generators.password');
+});
+Route::get('/generators/seo-url', function () {
+    return view('generators.seo-url');
+});
+Route::get('/generators/sequential-number', function () {
+    return view('generators.sequential-number');
+});
+Route::get('/generators/url-slug', function () {
+    return view('generators.url-slug');
+});

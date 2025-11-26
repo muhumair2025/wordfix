@@ -174,3 +174,35 @@ Route::get('/special-effects/upside-down', function () {
 Route::get('/special-effects/wide-text', function () {
     return view('special-effects.wide-text');
 });
+
+// Extract Tools Routes
+Route::get('/extract/emails', function () {
+    return view('extract.emails');
+});
+Route::get('/extract/hex-colors', function () {
+    return view('extract.hex-colors');
+});
+Route::get('/extract/image-urls', function () {
+    return view('extract.image-urls');
+});
+Route::get('/extract/ip-address', function () {
+    return view('extract.ip-address');
+});
+Route::get('/extract/phone-numbers', function () {
+    return view('extract.phone-numbers');
+});
+Route::get('/extract/numbers', function () {
+    return view('extract.numbers');
+});
+Route::get('/extract/text-between', function () {
+    return view('extract.text-between');
+});
+Route::get('/extract/urls', function () {
+    return view('extract.urls');
+});
+Route::get('/extract/random-lines', function () {
+    return view('extract.random-lines');
+});
+Route::get('/extract/zip-codes', function () {
+    return view('extract.zip-codes');
+});

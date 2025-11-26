@@ -16,52 +16,39 @@
                 class="w-full h-64 p-4 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm"
                 placeholder="{{ $inputPlaceholder }}"
             ></textarea>
-            <!-- Input Buttons -->
-            <div class="flex flex-wrap gap-2 mt-3">
+            <!-- Input Buttons - Compact Icons -->
+            <div class="flex flex-wrap gap-1.5 mt-2">
                 <button 
                     onclick="{{ $toolId }}ImportFile()" 
-                    class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+                    title="Import From File"
+                    class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
-                    Import From File
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
                 </button>
                 <button 
                     onclick="{{ $toolId }}Clear()" 
-                    class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+                    title="Clear"
+                    class="w-8 h-8 flex items-center justify-center bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
                 >
-                    Clear
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                    </svg>
                 </button>
             </div>
         </div>
 
         @if($showStats)
-        <!-- Stats Section - Shows between textareas on mobile, hidden on desktop -->
-        <div class="lg:hidden border-t border-gray-200 pt-4 pb-4">
-            <div class="flex flex-wrap gap-4 text-xs text-gray-600">
-                <div><span class="font-medium">Stats:</span></div>
-                <div>
-                    <span class="font-medium">Character Count:</span>
-                    <span id="{{ $toolId }}-charCount-mobile">0</span>
-                </div>
-                <div>
-                    <span class="font-medium">Character Count (without spaces):</span>
-                    <span id="{{ $toolId }}-charCountNoSpace-mobile">0</span>
-                </div>
-                <div>
-                    <span class="font-medium">Word Count:</span>
-                    <span id="{{ $toolId }}-wordCount-mobile">0</span>
-                </div>
-                <div>
-                    <span class="font-medium">Sentence Count:</span>
-                    <span id="{{ $toolId }}-sentenceCount-mobile">0</span>
-                </div>
-                <div>
-                    <span class="font-medium">Paragraph Count:</span>
-                    <span id="{{ $toolId }}-paragraphCount-mobile">0</span>
-                </div>
-                <div>
-                    <span class="font-medium">Line Count:</span>
-                    <span id="{{ $toolId }}-lineCount-mobile">0</span>
-                </div>
+        <!-- Stats Section - Compact Mobile View -->
+        <div class="lg:hidden border-t border-gray-200 pt-3 pb-3">
+            <div class="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs text-gray-600">
+                <div><span class="font-medium text-gray-700">Chars:</span> <span id="{{ $toolId }}-charCount-mobile">0</span></div>
+                <div><span class="font-medium text-gray-700">Chars (no space):</span> <span id="{{ $toolId }}-charCountNoSpace-mobile">0</span></div>
+                <div><span class="font-medium text-gray-700">Words:</span> <span id="{{ $toolId }}-wordCount-mobile">0</span></div>
+                <div><span class="font-medium text-gray-700">Sentences:</span> <span id="{{ $toolId }}-sentenceCount-mobile">0</span></div>
+                <div><span class="font-medium text-gray-700">Paragraphs:</span> <span id="{{ $toolId }}-paragraphCount-mobile">0</span></div>
+                <div><span class="font-medium text-gray-700">Lines:</span> <span id="{{ $toolId }}-lineCount-mobile">0</span></div>
             </div>
         </div>
         @endif
@@ -74,59 +61,49 @@
                 placeholder="{{ $outputPlaceholder }}"
                 readonly
             ></textarea>
-            <!-- Output Buttons -->
-            <div class="flex flex-wrap gap-2 mt-3">
+            <!-- Output Buttons - Compact Icons -->
+            <div class="flex flex-wrap gap-1.5 mt-2">
                 <button 
                     onclick="{{ $toolId }}Copy()" 
-                    class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+                    title="Copy Results"
+                    class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
-                    Copy Results
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
                 </button>
                 <button 
                     onclick="{{ $toolId }}ClearOutput()" 
-                    class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+                    title="Clear"
+                    class="w-8 h-8 flex items-center justify-center bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
                 >
-                    Clear
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                    </svg>
                 </button>
                 <button 
                     onclick="{{ $toolId }}Download()" 
-                    class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+                    title="Download"
+                    class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
-                    Download
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
                 </button>
             </div>
         </div>
     </div>
 
     @if($showStats)
-    <!-- Stats Section - Shows after textareas on desktop, hidden on mobile -->
-    <div class="hidden lg:block border-t border-gray-200 pt-4 mb-6">
-        <div class="flex flex-wrap gap-4 text-xs text-gray-600">
-            <div><span class="font-medium">Stats:</span></div>
-            <div>
-                <span class="font-medium">Character Count:</span>
-                <span id="{{ $toolId }}-charCount">0</span>
-            </div>
-            <div>
-                <span class="font-medium">Character Count (without spaces):</span>
-                <span id="{{ $toolId }}-charCountNoSpace">0</span>
-            </div>
-            <div>
-                <span class="font-medium">Word Count:</span>
-                <span id="{{ $toolId }}-wordCount">0</span>
-            </div>
-            <div>
-                <span class="font-medium">Sentence Count:</span>
-                <span id="{{ $toolId }}-sentenceCount">0</span>
-            </div>
-            <div>
-                <span class="font-medium">Paragraph Count:</span>
-                <span id="{{ $toolId }}-paragraphCount">0</span>
-            </div>
-            <div>
-                <span class="font-medium">Line Count:</span>
-                <span id="{{ $toolId }}-lineCount">0</span>
-            </div>
+    <!-- Stats Section - Compact Desktop View -->
+    <div class="hidden lg:block border-t border-gray-200 pt-3 mb-4">
+        <div class="flex flex-wrap gap-3 text-xs text-gray-600">
+            <div><span class="font-medium text-gray-700">Chars:</span> <span id="{{ $toolId }}-charCount">0</span></div>
+            <div><span class="font-medium text-gray-700">Chars (no space):</span> <span id="{{ $toolId }}-charCountNoSpace">0</span></div>
+            <div><span class="font-medium text-gray-700">Words:</span> <span id="{{ $toolId }}-wordCount">0</span></div>
+            <div><span class="font-medium text-gray-700">Sentences:</span> <span id="{{ $toolId }}-sentenceCount">0</span></div>
+            <div><span class="font-medium text-gray-700">Paragraphs:</span> <span id="{{ $toolId }}-paragraphCount">0</span></div>
+            <div><span class="font-medium text-gray-700">Lines:</span> <span id="{{ $toolId }}-lineCount">0</span></div>
         </div>
     </div>
     @endif

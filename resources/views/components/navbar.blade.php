@@ -182,9 +182,91 @@
             ]
         }
     }
-}" class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+}" class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50" :class="{'bg-gray-900 border-gray-700': document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark'}">
     <div class="w-full px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center h-20">
+        <!-- Two-row layout for laptop and desktop screens (lg to 2xl) -->
+        <div class="hidden lg:flex 2xl:hidden flex-col">
+            <!-- First row: Logo and Auth -->
+            <div class="flex items-center justify-between h-12 border-b border-gray-100">
+                <div class="flex-shrink-0">
+                    <a href="/" class="flex items-center">
+                        <img src="{{ asset('images/logo.png') }}" alt="WordFix" class="h-10">
+                    </a>
+                </div>
+                <div class="flex items-center space-x-2">
+                    @auth
+                        @if(Auth::user()->role === 'admin')
+                            <a href="/admin" class="px-2 py-1 text-xs font-medium text-purple-600 hover:text-purple-700 hover:bg-purple-50 rounded-md transition-all duration-200 flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                                Admin
+                            </a>
+                        @endif
+                        <span class="text-xs text-gray-600">{{ Str::limit(Auth::user()->name, 12) }}</span>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="px-2 py-1 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-all duration-200">
+                                Logout
+                            </button>
+                        </form>
+                    @else
+                        <!-- Dark Mode Toggle -->
+                        <button onclick="toggleTheme()" class="theme-toggle mr-2" title="Toggle Dark Mode">
+                            <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                            <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </button>
+                        
+                        <a href="{{ route('login') }}" class="px-2 py-1 text-xs font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-all duration-200">Login</a>
+                        <a href="{{ route('register') }}" class="px-2 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all duration-200">Register</a>
+                    @endauth
+                </div>
+            </div>
+            <!-- Second row: Navigation -->
+            <div class="flex items-center justify-center h-12">
+                <div class="flex items-center space-x-0.5">
+                    <template x-for="(menu, key) in menus" :key="key">
+                        <div class="relative" @click.away="activeDropdown = null">
+                            <button @click.stop="activeDropdown = (activeDropdown === key ? null : key)"
+                                    class="px-2 py-1 text-xs font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 flex items-center gap-0.5"
+                                    :class="{ 'text-blue-600 bg-blue-50': activeDropdown === key }">
+                                <span x-text="menu.title" class="whitespace-nowrap"></span>
+                                <svg class="w-2.5 h-2.5 transition-transform duration-200" 
+                                     :class="activeDropdown === key ? 'rotate-90' : 'rotate-0'"
+                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div x-show="activeDropdown === key"
+                                 x-cloak
+                                 @click.stop
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-1 scale-95"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                                 x-transition:leave-end="opacity-0 translate-y-1 scale-95"
+                                 class="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-1 max-h-72 overflow-y-auto z-50">
+                                <template x-for="item in menu.items" :key="item.url">
+                                    <a :href="item.url" 
+                                       x-text="item.name"
+                                       @click="activeDropdown = null"
+                                       class="block px-2 py-1.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 mx-1 rounded-md"></a>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Single row layout for very large screens and mobile -->
+        <div class="flex items-center h-16 lg:hidden 2xl:flex">
             <!-- Logo -->
             <div class="flex-shrink-0 mr-8">
                 <a href="/" class="flex items-center">
@@ -192,45 +274,101 @@
                 </a>
             </div>
             
-            <!-- Desktop Navigation -->
-            <div class="hidden lg:flex items-center space-x-1 flex-1">
+            <!-- Desktop Navigation for Very Large Screens (2xl and above) -->
+            <div class="hidden 2xl:flex items-center space-x-0.5 flex-1">
                 <template x-for="(menu, key) in menus" :key="key">
                     <div class="relative" 
-                         @mouseenter="activeDropdown = key" 
-                         @mouseleave="activeDropdown = null">
-                        <button class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-150"
+                         @click.away="activeDropdown = null">
+                        <button @click.stop="activeDropdown = (activeDropdown === key ? null : key)"
+                                class="px-2.5 py-1.5 text-xs font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 flex items-center gap-1"
                                 :class="{ 'text-blue-600 bg-blue-50': activeDropdown === key }">
-                            <span x-text="menu.title"></span>
-                            <svg class="inline-block w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            <span x-text="menu.title" class="whitespace-nowrap"></span>
+                            <!-- Right arrow by default, down arrow on click/active -->
+                            <svg class="w-3 h-3 transition-transform duration-200" 
+                                 :class="activeDropdown === key ? 'rotate-90' : 'rotate-0'"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
                         </button>
                         
                         <!-- Dropdown Menu -->
                         <div x-show="activeDropdown === key"
                              x-cloak
+                             @click.stop
                              x-transition:enter="transition ease-out duration-200"
-                             x-transition:enter-start="opacity-0 translate-y-1"
-                             x-transition:enter-end="opacity-100 translate-y-0"
+                             x-transition:enter-start="opacity-0 translate-y-1 scale-95"
+                             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                              x-transition:leave="transition ease-in duration-150"
-                             x-transition:leave-start="opacity-100 translate-y-0"
-                             x-transition:leave-end="opacity-0 translate-y-1"
-                             class="absolute left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2 max-h-96 overflow-y-auto">
+                             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                             x-transition:leave-end="opacity-0 translate-y-1 scale-95"
+                             class="absolute left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-100 py-1 max-h-72 overflow-y-auto z-50">
                             <template x-for="item in menu.items" :key="item.url">
                                 <a :href="item.url" 
                                    x-text="item.name"
-                                   class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 whitespace-nowrap"></a>
+                                   @click="activeDropdown = null"
+                                   class="block px-2.5 py-1.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 mx-1 rounded-md"></a>
                             </template>
                         </div>
                     </div>
                 </template>
             </div>
             
-            <!-- Mobile menu button -->
+            <!-- Desktop Auth Buttons for Very Large Screens -->
+            <div class="hidden 2xl:flex items-center space-x-3 ml-4">
+                @auth
+                    @if(Auth::user()->role === 'admin')
+                        <a href="/admin" class="px-3 py-1.5 text-xs font-medium text-purple-600 hover:text-purple-700 hover:bg-purple-50 rounded-md transition-all duration-200 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            Admin
+                        </a>
+                    @endif
+                    <div class="flex items-center space-x-1 xl:space-x-2">
+                        <span class="text-xs text-gray-600">Hi, {{ Auth::user()->name }}</span>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-all duration-200 flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                                </svg>
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                @else
+                    <!-- Dark Mode Toggle for Desktop -->
+                    <button onclick="toggleTheme()" class="theme-toggle mr-2" title="Toggle Dark Mode">
+                        <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    
+                    <a href="{{ route('login') }}" class="px-3 py-1.5 text-xs font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-all duration-200 flex items-center gap-1">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                        </svg>
+                        Login
+                    </a>
+                    <a href="{{ route('register') }}" class="px-3 py-1.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all duration-200 flex items-center gap-1">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                        </svg>
+                        Register
+                    </a>
+                @endauth
+            </div>
+            
+            <!-- Mobile/Tablet menu button - Show on screens smaller than lg (1024px) -->
             <div class="lg:hidden ml-auto">
                 <button @click="mobileMenuOpen = !mobileMenuOpen" 
-                        class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5 transition-transform duration-200" 
+                         :class="mobileMenuOpen ? 'rotate-90' : 'rotate-0'"
+                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
@@ -242,37 +380,123 @@
     <!-- Mobile Navigation -->
     <div x-show="mobileMenuOpen" 
          x-cloak
-         x-transition:enter="transition ease-out duration-200"
-         x-transition:enter-start="opacity-0 -translate-y-1"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-2"
          x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave="transition ease-in duration-200"
          x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-1"
-         class="lg:hidden border-t border-gray-200 bg-white">
-        <div class="px-2 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+         x-transition:leave-end="opacity-0 -translate-y-2"
+         class="lg:hidden border-t border-gray-100 bg-gradient-to-b from-white to-gray-50"
+         :class="{'border-gray-700 bg-gradient-to-b from-gray-900 to-gray-800': document.body.getAttribute('data-theme') === 'dark'}">
+        <div class="px-3 pt-3 pb-4 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto"
+             :class="{'bg-gray-900': document.body.getAttribute('data-theme') === 'dark'}">
             <template x-for="(menu, key) in menus" :key="key">
-                <div class="border-b border-gray-100 pb-2">
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+                     :class="{'bg-gray-800 border-gray-600': document.body.getAttribute('data-theme') === 'dark'}">
                     <button @click="activeDropdown = (activeDropdown === key ? null : key)"
-                            class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                            class="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200"
+                            :class="{ 
+                                'bg-blue-50 text-blue-600': activeDropdown === key && document.body.getAttribute('data-theme') !== 'dark',
+                                'bg-blue-900 text-blue-300': activeDropdown === key && document.body.getAttribute('data-theme') === 'dark',
+                                'text-white hover:bg-gray-700 hover:text-blue-300': document.body.getAttribute('data-theme') === 'dark'
+                            }">
                         <span x-text="menu.title"></span>
-                        <svg class="w-5 h-5 transform transition-transform duration-200"
-                             :class="{ 'rotate-180': activeDropdown === key }"
+                        <svg class="w-4 h-4 transform transition-transform duration-200"
+                             :class="activeDropdown === key ? 'rotate-90' : 'rotate-0'"
                              fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </button>
                     <div x-show="activeDropdown === key" 
                          x-cloak
                          x-collapse
-                         class="mt-1 space-y-1 pl-4">
-                        <template x-for="item in menu.items" :key="item.url">
-                            <a :href="item.url" 
-                               x-text="item.name"
-                               class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md"></a>
-                        </template>
+                         class="border-t border-gray-100 bg-gray-50"
+                         :class="{'border-gray-600 bg-gray-700': document.body.getAttribute('data-theme') === 'dark'}">
+                        <div class="py-2 space-y-1">
+                            <template x-for="item in menu.items" :key="item.url">
+                                <a :href="item.url" 
+                                   x-text="item.name"
+                                   @click="mobileMenuOpen = false"
+                                   class="block px-4 py-2.5 text-sm text-gray-600 hover:bg-white hover:text-blue-600 hover:border-l-4 hover:border-blue-400 transition-all duration-200 border-l-4 border-transparent"
+                                   :class="{
+                                       'text-gray-300 hover:bg-gray-600 hover:text-blue-300': document.body.getAttribute('data-theme') === 'dark'
+                                   }"></a>
+                            </template>
+                        </div>
                     </div>
                 </div>
             </template>
+            
+            <!-- Mobile Auth Section -->
+            <div class="mt-4 pt-4 border-t border-gray-200"
+                 :class="{'border-gray-600': document.body.getAttribute('data-theme') === 'dark'}">
+                @auth
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">{{ Auth::user()->name }}</div>
+                                <div class="text-xs text-gray-500">{{ Auth::user()->email }}</div>
+                            </div>
+                            @if(Auth::user()->role === 'admin')
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                    Admin
+                                </span>
+                            @endif
+                        </div>
+                        <div class="space-y-2">
+                            @if(Auth::user()->role === 'admin')
+                                <a href="/admin" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors duration-200">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                    Admin Panel
+                                </a>
+                            @endif
+                            <form method="POST" action="{{ route('logout') }}" class="w-full">
+                                @csrf
+                                <button type="submit" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors duration-200">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                                    </svg>
+                                    Logout
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4"
+                         :class="{'bg-gray-800 border-gray-600': document.body.getAttribute('data-theme') === 'dark'}">
+                        <div class="space-y-2">
+                            <!-- Dark Mode Toggle for Mobile -->
+                            <button onclick="toggleTheme()" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 theme-toggle-mobile"
+                                    :class="{'text-white bg-gray-700 hover:bg-gray-600': document.body.getAttribute('data-theme') === 'dark'}">
+                                <svg class="w-4 h-4 mr-2 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                </svg>
+                                <svg class="w-4 h-4 mr-2 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                <span class="theme-text"></span>
+                            </button>
+                            
+                            <a href="{{ route('login') }}" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200"
+                               :class="{'text-blue-300 bg-blue-900 hover:bg-blue-800': document.body.getAttribute('data-theme') === 'dark'}">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                                </svg>
+                                Login
+                            </a>
+                            <a href="{{ route('register') }}" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                               :class="{'bg-blue-700 hover:bg-blue-600': document.body.getAttribute('data-theme') === 'dark'}">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                                </svg>
+                                Register
+                            </a>
+                        </div>
+                    </div>
+                @endauth
+            </div>
         </div>
     </div>
 </nav>

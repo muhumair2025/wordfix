@@ -1,292 +1,494 @@
 <footer class="bg-white border-t border-gray-200 mt-6 md:mt-8">
-    <div class="w-full px-4 sm:px-6 lg:px-8 py-6">
-        <!-- Logo and Description -->
-        <div class="mb-6">
-            <a href="/" class="inline-block mb-2">
-                <img src="{{ asset('images/logo.png') }}" alt="WordFix" class="h-7 md:h-8">
-            </a>
-            <p class="text-gray-600 text-xs max-w-md leading-relaxed">
-                Welcome to WordFix! We built this website in 2024 because we noticed there was a need for a clean, simple, and safe way to modify text online for free.
-            </p>
-        </div>
-        
-        <!-- Footer Menus Grid - Balanced Columns -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-6">
-            <!-- Column 1: Basic + Counter + Generator Tools -->
-            <div class="footer-section">
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Basic Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/basic/alternate-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Alternate Case</a></li>
-                    <li><a href="/basic/capitalize-words" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Capitalize Words</a></li>
-                    <li><a href="/basic/invert-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Invert Case</a></li>
-                    <li><a href="/basic/lower-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Lower Case</a></li>
-                    <li><a href="/basic/sentence-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Sentence Case</a></li>
-                    <li><a href="/basic/strikethrough" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Strikethrough</a></li>
-                    <li><a href="/basic/title-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Title Case</a></li>
-                    <li><a href="/basic/underline" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Underline</a></li>
-                    <li><a href="/basic/upper-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Upper Case</a></li>
-                </ul>
-                
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none mt-3" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Counter Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/counter/character-word-counter" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Character Counter</a></li>
-                    <li><a href="/counter/count-each-line" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Count Each Line</a></li>
-                    <li><a href="/counter/bracket-tag-counter" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Bracket Counter</a></li>
-                </ul>
-                
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none mt-3" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Generator Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/generators/lorem-ipsum" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Lorem Ipsum</a></li>
-                    <li><a href="/generators/color" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Color</a></li>
-                    <li><a href="/generators/date" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Date</a></li>
-                    <li><a href="/generators/email" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Email</a></li>
-                    <li><a href="/generators/ip" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random IP</a></li>
-                    <li><a href="/generators/ipv6" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random IPv6</a></li>
-                    <li><a href="/generators/mac" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random MAC</a></li>
-                    <li><a href="/generators/number" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Number</a></li>
-                    <li><a href="/generators/user-agent" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random User Agent</a></li>
-                    <li><a href="/generators/password" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Password</a></li>
-                    <li><a href="/generators/random-phone-number" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Phone Number</a></li>
-                    <li><a href="/generators/seo-url" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">SEO URL</a></li>
-                    <li><a href="/generators/sequential-number" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Sequential Number</a></li>
-                    <li><a href="/generators/url-slug" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">URL Slug</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 2: Extract + Formatter Tools -->
-            <div class="footer-section">
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Extract Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/extract/emails" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Emails</a></li>
-                    <li><a href="/extract/hex-colors" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Hex Colors</a></li>
-                    <li><a href="/extract/image-urls" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Image Urls</a></li>
-                    <li><a href="/extract/ip-address" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract IP Address</a></li>
-                    <li><a href="/extract/phone-numbers" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Phone Numbers</a></li>
-                    <li><a href="/extract/numbers" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Numbers</a></li>
-                    <li><a href="/extract/text-between" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Text Between</a></li>
-                    <li><a href="/extract/urls" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Urls</a></li>
-                    <li><a href="/extract/random-lines" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Random Lines</a></li>
-                    <li><a href="/extract/zip-codes" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Extract Zip Codes</a></li>
-                </ul>
-                
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none mt-3" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Formatter Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/formatter/css-beautifier" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">CSS Beautifier</a></li>
-                    <li><a href="/formatter/html-beautifier" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">HTML Beautifier</a></li>
-                    <li><a href="/formatter/javascript-beautifier" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">JavaScript Beautifier</a></li>
-                    <li><a href="/formatter/json-beautifier" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">JSON Beautifier</a></li>
-                    <li><a href="/formatter/sql-beautifier" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">SQL Beautifier</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 3: Sorting + Conversion + Replace Tools -->
-            <div class="footer-section">
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Sorting Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/sorting/alphabetical" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Alphabetical Sort</a></li>
-                    <li><a href="/sorting/length" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Length Sort</a></li>
-                    <li><a href="/sorting/random" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Sort</a></li>
-                    <li><a href="/sorting/numbers" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Sort Numbers</a></li>
-                </ul>
-                
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none mt-3" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Conversion Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/conversions/base64-decoder" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Base64 Decoder</a></li>
-                    <li><a href="/conversions/base64-encoder" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Base64 Encoder</a></li>
-                    <li><a href="/conversions/date" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Date Conversion</a></li>
-                    <li><a href="/conversions/decimal-to-string" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Decimal to String</a></li>
-                    <li><a href="/conversions/html-entities" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Html Entities</a></li>
-                    <li><a href="/conversions/string-to-decimal" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">String to Decimal</a></li>
-                    <li><a href="/conversions/text-to-binary" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Text To Binary</a></li>
-                    <li><a href="/conversions/url-decode" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Url Decode</a></li>
-                    <li><a href="/conversions/url-encode" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Url Encode</a></li>
-                </ul>
-                
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none mt-3" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Replace Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/replace/newline-with-commas" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Newline with Commas</a></li>
-                    <li><a href="/replace/spaces" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Replace Spaces</a></li>
-                    <li><a href="/replace/text-between" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Replace Text Between</a></li>
-                    <li><a href="/replace/search-replace" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Search And Replace</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 4: Remove Tools -->
-            <div class="footer-section">
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Remove Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/remove/consonants" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Consonants</a></li>
-                    <li><a href="/remove/duplicate-lines" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Duplicates</a></li>
-                    <li><a href="/remove/duplicate-words" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Dup. Words</a></li>
-                    <li><a href="/remove/empty-lines" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Empty Lines</a></li>
-                    <li><a href="/remove/extra-spaces" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Extra Spaces</a></li>
-                    <li><a href="/remove/first-characters" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove First Chars</a></li>
-                    <li><a href="/remove/html-comments" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Html Comments</a></li>
-                    <li><a href="/remove/html-tags" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Html Tags</a></li>
-                    <li><a href="/remove/last-characters" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Last Chars</a></li>
-                    <li><a href="/remove/line-breaks" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Line Breaks</a></li>
-                    <li><a href="/remove/lines-with-word" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Lines w/ Word</a></li>
-                    <li><a href="/remove/numbers" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Numbers</a></li>
-                    <li><a href="/remove/numbers-from-text" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Num. From Text</a></li>
-                    <li><a href="/remove/quotes" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Quotes</a></li>
-                    <li><a href="/remove/single-quotes" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Single Quotes</a></li>
-                    <li><a href="/remove/spaces" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Spaces</a></li>
-                    <li><a href="/remove/special-characters" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Special Chars</a></li>
-                    <li><a href="/remove/tabs" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Tabs</a></li>
-                    <li><a href="/remove/text-between" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Text Between</a></li>
-                    <li><a href="/remove/vowels" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Remove Vowels</a></li>
-                    <li><a href="/remove/trim-spaces" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Trim Spaces</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 5: Modify Tools -->
-            <div class="footer-section">
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Modify Tools</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/modify/add-number-to-each-line" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Add Number To Line</a></li>
-                    <li><a href="/modify/add-string-after-characters" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Add String After Chars</a></li>
-                    <li><a href="/modify/add-text-to-each-line" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Add Text To Line</a></li>
-                    <li><a href="/modify/column-to-comma" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Column to Comma</a></li>
-                    <li><a href="/modify/commas-between-numbers" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Commas in Numbers</a></li>
-                    <li><a href="/modify/comma-to-column" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Comma to Column</a></li>
-                    <li><a href="/modify/double-space-to-single" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Double to Single Space</a></li>
-                    <li><a href="/modify/single-space-to-double" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Single to Double Space</a></li>
-                    <li><a href="/modify/keep-first-characters" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Keep First Chars</a></li>
-                    <li><a href="/modify/keep-last-characters" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Keep Last Chars</a></li>
-                    <li><a href="/modify/keep-lines-with-word" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Keep Lines w/ Word</a></li>
-                    <li><a href="/modify/keep-lines-with-words" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Keep Lines w/ Words</a></li>
-                    <li><a href="/modify/merge-text-lists" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Merge Text or Lists</a></li>
-                    <li><a href="/modify/number-to-words" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Number To Words</a></li>
-                    <li><a href="/modify/prefix-suffix" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Prefix Suffix</a></li>
-                    <li><a href="/modify/position-text-addition" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Position Text Add</a></li>
-                    <li><a href="/modify/trim-text" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Trim Text</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 6: Special Effects Tools -->
-            <div class="footer-section">
-                <button class="footer-toggle md:cursor-default w-full text-left flex justify-between items-center md:pointer-events-none" onclick="toggleFooterSection(this)">
-                    <h3 class="text-xs font-semibold text-gray-900">Special Effects</h3>
-                    <svg class="w-4 h-4 md:hidden transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <ul class="footer-content space-y-1 mt-2 hidden md:block">
-                    <li><a href="/special-effects/backward" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Backward</a></li>
-                    <li><a href="/special-effects/binary-to-text" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Binary To Text</a></li>
-                    <li><a href="/special-effects/bold" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Bold</a></li>
-                    <li><a href="/special-effects/bold-gothic" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Bold Gothic</a></li>
-                    <li><a href="/special-effects/bold-italic" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Bold Italic</a></li>
-                    <li><a href="/special-effects/circled" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Circled</a></li>
-                    <li><a href="/special-effects/cursive-bold" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Cursive Bold</a></li>
-                    <li><a href="/special-effects/flip-text" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Flip Text</a></li>
-                    <li><a href="/special-effects/flip-words" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Flip Words</a></li>
-                    <li><a href="/special-effects/gothic" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Gothic</a></li>
-                    <li><a href="/special-effects/italic" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Italic</a></li>
-                    <li><a href="/special-effects/outline" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Outline</a></li>
-                    <li><a href="/special-effects/parentheses" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Parentheses</a></li>
-                    <li><a href="/special-effects/pascal-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Pascal Case</a></li>
-                    <li><a href="/special-effects/reverse-words" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Reverse Words</a></li>
-                    <li><a href="/special-effects/slashed" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Slashed</a></li>
-                    <li><a href="/special-effects/snake-case" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Snake Case</a></li>
-                    <li><a href="/special-effects/upside-down" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Upside Down</a></li>
-                    <li><a href="/special-effects/wide-text" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Wide Text</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Suggest Tool Button -->
-        <div class="mb-6 text-center">
-            <a href="/contact" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-xs font-medium rounded hover:bg-blue-700 transition-colors">
-                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                </svg>
-                Suggest Us a Tool
-            </a>
-        </div>
-        
-        <!-- Bottom Section -->
-        <div class="pt-4 border-t border-gray-200">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-                <p class="text-xs text-gray-500">
-                    &copy; {{ date('Y') }} WordFix. All rights reserved.
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <!-- About WordFix -->
+            <div class="lg:col-span-2">
+                <a href="/" class="inline-block mb-4">
+                    <img src="{{ asset('images/logo.png') }}" alt="WordFix" class="h-8">
+                </a>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    WordFix is a comprehensive suite of 100+ free online text manipulation tools designed for writers, developers, students, and professionals. Transform, format, analyze, and process text with our clean, fast, and secure web-based tools.
                 </p>
-                <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-                    <a href="/contact" class="text-xs text-gray-500 hover:text-blue-600 transition-colors">Contact</a>
-                    <a href="/privacy-policy" class="text-xs text-gray-500 hover:text-blue-600 transition-colors">Privacy Policy</a>
-                    <a href="/terms" class="text-xs text-gray-500 hover:text-blue-600 transition-colors">Terms</a>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    From basic case conversions to advanced text processing, code formatting, data extraction, and content generation - WordFix provides everything you need to work with text efficiently. No downloads, no registration required.
+                </p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="/" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Home</a></li>
+                    <li><a href="/basic/upper-case" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">Popular Tools</a></li>
+                   
+                    @php
+                        $footerPages = \App\Models\Page::footerPages();
+                    @endphp
+                    @foreach($footerPages as $page)
+                        <li><a href="{{ $page->url }}" class="text-gray-600 hover:text-blue-600 transition-colors text-sm">{{ $page->title }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+            
+            <!-- Help & Feedback -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Help & Feedback</h3>
+                <div class="space-y-3">
+                    @auth
+                    <button 
+                        onclick="openSuggestToolModal()"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        Suggest a Tool
+                    </button>
+                    <button 
+                        onclick="openFeedbackModal()"
+                        class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        Provide Feedback
+                    </button>
+                    @else
+                    <a href="{{ route('login') }}" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        Login to Suggest Tool
+                    </a>
+                    <a href="{{ route('login') }}" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        Login to Give Feedback
+                    </a>
+                    @endauth
+                    <p class="text-xs text-gray-500 mt-3">
+                        Have an idea for a new tool or want to report an issue? We'd love to hear from you!
+                    </p>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Tool Categories Overview -->
+        <div class="border-t border-gray-200 pt-6 mb-6">
+            <h3 class="text-sm font-semibold text-gray-900 mb-3">Tool Categories</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+                <a href="/basic" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Basic</a>
+                <a href="/counter" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Counter</a>
+                <a href="/formatter" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Formatter</a>
+                <a href="/modify" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Modify</a>
+                <a href="/extract" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Extract</a>
+                <a href="/sorting" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Sorting</a>
+                <a href="/remove" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Remove</a>
+                <a href="/replace" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Replace</a>
+                <a href="/conversions" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Conversions</a>
+                <a href="/generators" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Generators</a>
+                <a href="/special-effects" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">Special Effects</a>
+                <a href="/studio" class="text-xs text-gray-600 hover:text-blue-600 transition-colors py-1">✨ Studio</a>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-xs text-gray-500">
+                © 2024 WordFix. All rights reserved. Free online text tools for everyone.
+            </div>
+            <div class="flex items-center gap-4 text-xs text-gray-500">
+                <span>Made with ❤️ for text processing</span>
+                <span>•</span>
+                <span>100+ Tools Available</span>
+                <span>•</span>
+                <span>No Registration Required</span>
             </div>
         </div>
     </div>
 </footer>
 
+<!-- Suggest Tool Modal -->
+<div id="suggestToolModal" class="fixed inset-0 z-50 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0" id="suggestToolModalContent">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl p-6">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white bg-opacity-20 rounded-full p-2">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Suggest a New Tool</h3>
+                            <p class="text-blue-100 text-sm">Help us improve WordFix</p>
+                        </div>
+                    </div>
+                    <button onclick="closeSuggestToolModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6">
+                <form id="suggestToolForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                </svg>
+                                Tool Name
+                            </span>
+                        </label>
+                        <input type="text" id="toolName" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400" placeholder="e.g., Password Strength Checker">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                Description
+                            </span>
+                        </label>
+                        <textarea id="toolDescription" rows="3" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none" placeholder="Describe what this tool should do and how it would help users..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                                Category
+                            </span>
+                        </label>
+                        <select id="toolCategory" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 bg-white">
+                            <option value="">Select a category</option>
+                            <option value="basic">Basic Tools</option>
+                            <option value="counter">Counter Tools</option>
+                            <option value="formatter">Code Formatters</option>
+                            <option value="modify">Text Modifiers</option>
+                            <option value="extract">Data Extractors</option>
+                            <option value="sorting">Sorting Tools</option>
+                            <option value="remove">Remove Tools</option>
+                            <option value="replace">Replace Tools</option>
+                            <option value="conversions">Converters</option>
+                            <option value="generators">Generators</option>
+                            <option value="special-effects">Special Effects</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Use Case -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                                Use Case (Optional)
+                            </span>
+                        </label>
+                        <textarea id="useCase" rows="2" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none" placeholder="When would this tool be useful? What problem does it solve?"></textarea>
+                    </div>
+                    
+                    <div class="flex gap-3 pt-4">
+                        <button type="button" onclick="closeSuggestToolModal()" class="flex-1 px-6 py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl">
+                            Submit Suggestion
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Feedback Modal -->
+<div id="feedbackModal" class="fixed inset-0 z-50 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0" id="feedbackModalContent">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-t-2xl p-6">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white bg-opacity-20 rounded-full p-2">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Provide Feedback</h3>
+                            <p class="text-green-100 text-sm">Help us make WordFix better</p>
+                        </div>
+                    </div>
+                    <button onclick="closeFeedbackModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6">
+                <form id="feedbackForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                </svg>
+                                Feedback Type
+                            </span>
+                        </label>
+                        <select id="feedbackType" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white">
+                            <option value="bug_report">🐛 Bug Report</option>
+                            <option value="feature_request">✨ Feature Request</option>
+                            <option value="improvement">🚀 Improvement Suggestion</option>
+                            <option value="compliment">👏 Compliment</option>
+                            <option value="other">💬 Other Feedback</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                                </svg>
+                                Subject
+                            </span>
+                        </label>
+                        <input type="text" id="feedbackSubject" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400" placeholder="Brief description of your feedback">
+                    </div>
+                    
+                    <!-- Rating -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                </svg>
+                                Rating (Optional)
+                            </span>
+                        </label>
+                        <select id="rating" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white">
+                            <option value="">Select a rating</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Good</option>
+                            <option value="3">⭐⭐⭐ Average</option>
+                            <option value="2">⭐⭐ Poor</option>
+                            <option value="1">⭐ Very Poor</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-800 mb-2">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                Details
+                            </span>
+                        </label>
+                        <textarea id="feedbackDetails" rows="4" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none" placeholder="Please provide detailed feedback. The more specific, the better we can help!"></textarea>
+                    </div>
+                    
+                    <div class="flex gap-3 pt-4">
+                        <button type="button" onclick="closeFeedbackModal()" class="flex-1 px-6 py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl">
+                            Send Feedback
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-function toggleFooterSection(button) {
-    // Only work on mobile
-    if (window.innerWidth >= 768) return;
+// Suggest Tool Modal Functions
+function openSuggestToolModal() {
+    const modal = document.getElementById('suggestToolModal');
+    const modalContent = document.getElementById('suggestToolModalContent');
     
-    const content = button.nextElementSibling;
-    const icon = button.querySelector('svg');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
     
-    // Toggle content
-    content.classList.toggle('hidden');
-    
-    // Rotate icon
-    if (content.classList.contains('hidden')) {
-        icon.style.transform = 'rotate(0deg)';
-    } else {
-        icon.style.transform = 'rotate(180deg)';
-    }
+    // Animate modal entrance
+    setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
 }
+
+function closeSuggestToolModal() {
+    const modal = document.getElementById('suggestToolModal');
+    const modalContent = document.getElementById('suggestToolModalContent');
+    
+    // Animate modal exit
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        document.getElementById('suggestToolForm').reset();
+    }, 300);
+}
+
+// Feedback Modal Functions
+function openFeedbackModal() {
+    const modal = document.getElementById('feedbackModal');
+    const modalContent = document.getElementById('feedbackModalContent');
+    
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    // Animate modal entrance
+    setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
+}
+
+function closeFeedbackModal() {
+    const modal = document.getElementById('feedbackModal');
+    const modalContent = document.getElementById('feedbackModalContent');
+    
+    // Animate modal exit
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        document.getElementById('feedbackForm').reset();
+    }, 300);
+}
+
+// Form Submissions
+document.getElementById('suggestToolForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const toolName = document.getElementById('toolName').value;
+    const toolDescription = document.getElementById('toolDescription').value;
+    const toolCategory = document.getElementById('toolCategory').value;
+    const useCase = document.getElementById('useCase').value;
+    
+    if (!toolName || !toolDescription) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('tool_name', toolName);
+    formData.append('description', toolDescription);
+    formData.append('category', toolCategory);
+    formData.append('use_case', useCase);
+    
+    try {
+        const response = await fetch('{{ route("suggestions.store") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json',
+            },
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(data.message);
+            document.getElementById('suggestToolForm').reset();
+            closeSuggestToolModal();
+        } else {
+            alert('Error: ' + (data.message || 'Something went wrong'));
+        }
+    } catch (error) {
+        alert('Error: Unable to submit suggestion. Please try again.');
+        console.error('Error:', error);
+    }
+});
+
+document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const feedbackType = document.getElementById('feedbackType').value;
+    const toolName = document.getElementById('feedbackSubject').value; // Using subject as tool name
+    const rating = document.getElementById('rating').value;
+    const message = document.getElementById('feedbackDetails').value;
+    
+    if (!feedbackType || !message) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('feedback_type', feedbackType);
+    formData.append('tool_name', toolName);
+    formData.append('rating', rating);
+    formData.append('message', message);
+    
+    try {
+        const response = await fetch('{{ route("feedback.store") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json',
+            },
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(data.message);
+            document.getElementById('feedbackForm').reset();
+            closeFeedbackModal();
+        } else {
+            alert('Error: ' + (data.message || 'Something went wrong'));
+        }
+    } catch (error) {
+        alert('Error: Unable to submit feedback. Please try again.');
+        console.error('Error:', error);
+    }
+});
+
+// Close modals when clicking outside
+document.getElementById('suggestToolModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeSuggestToolModal();
+    }
+});
+
+document.getElementById('feedbackModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeFeedbackModal();
+    }
+});
+
+// Close modals with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeSuggestToolModal();
+        closeFeedbackModal();
+    }
+});
 </script>

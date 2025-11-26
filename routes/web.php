@@ -1,11 +1,62 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 });
 
+// Dashboard route removed - admins use /admin, regular users use home page
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+// Import controllers
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\FeedbackController;
+
+// Home route is defined above
+
+// Dynamic Category Routes
+Route::get('/{category}', [CategoryController::class, 'show'])
+    ->where('category', 'basic|counter|formatter|modify|extract|sorting|remove|replace|conversions|generators|special-effects|studio');
+
+// Suggestion and Feedback Routes (Authenticated users only)
+Route::middleware(['auth'])->group(function () {
+    Route::post('/suggestions', [SuggestionController::class, 'store'])->name('suggestions.store');
+    Route::get('/my-suggestions', [SuggestionController::class, 'index'])->name('suggestions.index');
+    Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+    Route::get('/my-feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+});
+
+// Admin Routes (Admin only)
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/users', [AdminController::class, 'users'])->name('users');
+    
+    // Suggestions Management
+    Route::get('/suggestions', [AdminController::class, 'suggestions'])->name('suggestions');
+    Route::get('/suggestions/{suggestion}', [AdminController::class, 'showSuggestion'])->name('suggestions.show');
+    Route::patch('/suggestions/{suggestion}/status', [AdminController::class, 'updateSuggestionStatus'])->name('suggestions.update-status');
+    
+    // Feedback Management
+    Route::get('/feedback', [AdminController::class, 'feedback'])->name('feedback');
+    Route::get('/feedback/{feedback}', [AdminController::class, 'showFeedback'])->name('feedback.show');
+    Route::patch('/feedback/{feedback}/status', [AdminController::class, 'updateFeedbackStatus'])->name('feedback.update-status');
+    
+    // Pages Management
+    Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
+});
+
+// Tool Routes - All individual tool routes
 // Basic Tools Routes
 Route::get('/basic/upper-case', function () {
     return view('basic.upper-case');
@@ -387,3 +438,16 @@ Route::get('/studio/text-flow', function () {
 Route::get('/generators/random-phone-number', function () {
     return view('generators.phone');
 })->name('generators.phone');
+
+// Admin Pages Management
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
+    
+    // Mail Settings
+    Route::get('mail-settings', [\App\Http\Controllers\Admin\MailSettingController::class, 'index'])->name('mail-settings');
+    Route::put('mail-settings', [\App\Http\Controllers\Admin\MailSettingController::class, 'update'])->name('mail-settings.update');
+    Route::post('mail-settings/test', [\App\Http\Controllers\Admin\MailSettingController::class, 'sendTestEmail'])->name('mail-settings.test');
+});
+
+// Public Pages
+Route::get('/page/{slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('page.show');

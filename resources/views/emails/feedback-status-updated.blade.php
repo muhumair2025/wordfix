@@ -5,24 +5,40 @@
 @section('header-subtitle', 'Your feedback status has been updated')
 
 @section('content')
-<p>Hello <strong>{{ $feedback->user->name }}</strong>,</p>
+<p class="compact-text">Hello <strong>{{ $feedback->user->name }}</strong>,</p>
 
-<p>Thank you for your feedback! We have an update regarding your recent submission to WordFix.</p>
+<p class="compact-text">We have an update on your feedback submission.</p>
 
 @if($feedback->status === 'resolved')
     <div class="success-box">
-        <h3 style="margin: 0 0 12px 0; color: #065f46;">✅ Issue Resolved</h3>
-        <p style="margin: 0;">Great news! We've addressed your feedback and implemented the necessary changes. Thank you for helping us improve WordFix!</p>
+        <div class="admin-reply-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Issue Resolved
+        </div>
+        <p style="margin: 0; font-size: 13px;">We've addressed your feedback. Thank you for helping us improve!</p>
     </div>
 @elseif($feedback->status === 'in_progress')
     <div class="info-box">
-        <h3 style="margin: 0 0 12px 0; color: #1e40af;">🔧 In Progress</h3>
-        <p style="margin: 0;">We're actively working on addressing your feedback. We'll keep you updated on our progress!</p>
+        <div class="admin-reply-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            In Progress
+        </div>
+        <p style="margin: 0; font-size: 13px;">We're working on your feedback. Updates coming soon!</p>
     </div>
 @elseif($feedback->status === 'closed')
     <div class="warning-box">
-        <h3 style="margin: 0 0 12px 0; color: #92400e;">📋 Feedback Closed</h3>
-        <p style="margin: 0;">We've reviewed your feedback and have closed this item. Thank you for taking the time to share your thoughts with us!</p>
+        <div class="admin-reply-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Feedback Closed
+        </div>
+        <p style="margin: 0; font-size: 13px;">We've reviewed your feedback. Thank you for sharing!</p>
     </div>
 @endif
 
@@ -43,7 +59,15 @@
         <th>Rating</th>
         <td>
             @for($i = 1; $i <= 5; $i++)
-                @if($i <= $feedback->rating)⭐@else☆@endif
+                @if($i <= $feedback->rating)
+                    <svg class="icon" style="color: #fbbf24;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                    </svg>
+                @else
+                    <svg class="icon" style="color: #d1d5db;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                    </svg>
+                @endif
             @endfor
             ({{ $feedback->rating }}/5)
         </td>
@@ -64,26 +88,30 @@
 </table>
 
 @if($feedback->admin_response)
-<div class="info-box">
-    <h4 style="margin: 0 0 8px 0; color: #1e40af;">💬 Response from our team:</h4>
-    <p style="margin: 0; font-style: italic;">"{{ $feedback->admin_response }}"</p>
+<div class="admin-reply">
+    <div class="admin-reply-header">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        Admin Response
+    </div>
+    <p style="margin: 0; font-size: 13px; font-style: italic;">"{{ $feedback->admin_response }}"</p>
 </div>
 @endif
 
+<p class="compact-text">
 @if($feedback->status === 'resolved')
-<p>We hope our solution addresses your concerns. If you have any additional feedback or encounter other issues, please don't hesitate to reach out!</p>
+    We hope this addresses your concerns. Feel free to reach out with more feedback!
 @elseif($feedback->status === 'in_progress')
-<p>We're committed to addressing your feedback and will update you as we make progress. Thank you for your patience!</p>
+    We're working on this and will update you soon. Thank you for your patience!
 @else
-<p>Your feedback is valuable to us and helps improve WordFix for everyone. We appreciate you taking the time to share your thoughts!</p>
+    Your feedback helps improve WordFix. Thank you for sharing your thoughts!
 @endif
+</p>
 
-<div style="text-align: center; margin: 24px 0;">
+<div style="text-align: center; margin: 12px 0;">
     <a href="{{ url('/') }}" class="button">Continue Using WordFix</a>
 </div>
 
-<p>Have more feedback? We'd love to hear from you! Feel free to submit additional feedback anytime through our website.</p>
-
-<p>Best regards,<br>
-<strong>The WordFix Team</strong></p>
+<p class="compact-text">Best regards,<br><strong>WordFix Team</strong></p>
 @endsection

@@ -237,6 +237,62 @@
     </div>
 </div>
 
+<!-- Reply to Feedback Modal -->
+<div id="replyFeedbackModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-medium text-gray-900">Reply to Feedback</h3>
+                <button onclick="closeReplyModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="px-6 py-4">
+                <form id="replyForm" method="POST" class="space-y-4">
+                    @csrf
+                    @method('PUT')
+                    
+                    <div id="feedbackSummary" class="bg-gray-50 p-4 rounded-lg">
+                        <!-- Feedback summary will be loaded here -->
+                    </div>
+                    
+                    <div>
+                        <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Update Status</label>
+                        <select name="status" id="status" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="new">New</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="admin_response" class="block text-sm font-medium text-gray-700 mb-2">Admin Response</label>
+                        <textarea name="admin_response" id="admin_response" rows="4" 
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                  placeholder="Enter your response to the user (optional)"></textarea>
+                        <p class="text-sm text-gray-500 mt-1">This response will be sent to the user via email.</p>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" onclick="closeReplyModal()" 
+                                class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Cancel
+                        </button>
+                        <button type="submit" 
+                                class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Send Reply & Update Status
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 async function viewFeedback(feedbackId) {
     try {
@@ -316,16 +372,115 @@ function closeFeedbackModal() {
     document.getElementById('viewFeedbackModal').classList.add('hidden');
 }
 
-function replyToFeedback(feedbackId) {
-    // TODO: Implement reply functionality
-    alert('Reply functionality will be implemented');
+async function replyToFeedback(feedbackId) {
+    try {
+        const response = await fetch(`/admin/feedback/${feedbackId}`);
+        const feedback = await response.json();
+        
+        const modal = document.getElementById('replyFeedbackModal');
+        const summary = document.getElementById('feedbackSummary');
+        const form = document.getElementById('replyForm');
+        const statusSelect = document.getElementById('status');
+        const responseTextarea = document.getElementById('admin_response');
+        
+        // Set form action
+        form.action = `/admin/feedback/${feedbackId}/status`;
+        
+        // Set current status
+        statusSelect.value = feedback.status;
+        
+        // Set current admin response if exists
+        responseTextarea.value = feedback.admin_response || '';
+        
+        // Create feedback summary
+        const ratingStars = feedback.rating ? 
+            Array.from({length: 5}, (_, i) => i < feedback.rating ? '⭐' : '☆').join('') : 'No rating';
+        
+        summary.innerHTML = `
+            <div class="space-y-2">
+                <div class="flex justify-between">
+                    <span class="font-medium">From:</span>
+                    <span>${feedback.user.name} (${feedback.user.email})</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-medium">Type:</span>
+                    <span>${feedback.feedback_type.replace('_', ' ')}</span>
+                </div>
+                ${feedback.tool_name ? `
+                <div class="flex justify-between">
+                    <span class="font-medium">Tool:</span>
+                    <span>${feedback.tool_name}</span>
+                </div>
+                ` : ''}
+                <div class="flex justify-between">
+                    <span class="font-medium">Rating:</span>
+                    <span>${ratingStars} (${feedback.rating || 'N/A'})</span>
+                </div>
+                <div>
+                    <span class="font-medium">Message:</span>
+                    <p class="mt-1 text-sm text-gray-600">${feedback.message}</p>
+                </div>
+            </div>
+        `;
+        
+        modal.classList.remove('hidden');
+    } catch (error) {
+        console.error('Error loading feedback for reply:', error);
+        alert('Error loading feedback details');
+    }
 }
 
-// Close modal when clicking outside
+function closeReplyModal() {
+    document.getElementById('replyFeedbackModal').classList.add('hidden');
+}
+
+// Close modals when clicking outside
 document.getElementById('viewFeedbackModal').addEventListener('click', function(e) {
     if (e.target === this) {
         closeFeedbackModal();
     }
+});
+
+document.getElementById('replyFeedbackModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeReplyModal();
+    }
+});
+
+// Handle reply form submission
+document.getElementById('replyForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            closeReplyModal();
+            location.reload(); // Refresh the page to show updated status
+        } else {
+            throw new Error('Failed to update feedback');
+        }
+    })
+    .catch(error => {
+        console.error('Error updating feedback:', error);
+        alert('Error updating feedback. Please try again.');
+    })
+    .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    });
 });
 </script>
 @endsection

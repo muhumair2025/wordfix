@@ -222,5 +222,8 @@
             }
         });
     </script>
+    
+    <!-- Scripts Stack -->
+    @stack('scripts')
 </body>
 </html>

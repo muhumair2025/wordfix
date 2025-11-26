@@ -51,6 +51,7 @@ class MailSettingController extends Controller
             'send_status_update_emails' => $request->boolean('send_status_update_emails'),
         ];
 
+        // Save to database
         foreach ($settings as $key => $value) {
             MailSetting::updateOrCreate(
                 ['key' => $key],
@@ -58,11 +59,14 @@ class MailSettingController extends Controller
             );
         }
 
+        // Update .env file for consistency
+        $this->updateEnvFile($settings);
+
         // Update runtime mail configuration
         $this->updateMailConfig();
 
         return redirect()->route('admin.mail-settings')
-            ->with('success', 'Mail settings updated successfully!');
+            ->with('success', 'Mail settings updated successfully in both database and .env file!');
     }
 
     /**
@@ -149,6 +153,63 @@ class MailSettingController extends Controller
             Config::set('mail.mailers.smtp.encryption', $settings['mail_encryption'] ?? 'tls');
             Config::set('mail.from.address', $settings['mail_from_address'] ?? 'noreply@wordfix.com');
             Config::set('mail.from.name', $settings['mail_from_name'] ?? 'WordFix');
+        }
+    }
+
+    /**
+     * Update .env file with mail settings for consistency.
+     */
+    private function updateEnvFile($settings)
+    {
+        $envPath = base_path('.env');
+        
+        if (!file_exists($envPath)) {
+            \Log::warning('.env file not found, skipping .env update');
+            return;
+        }
+
+        try {
+            $envContent = file_get_contents($envPath);
+            
+            // Map database keys to .env keys
+            $envMappings = [
+                'mail_mailer' => 'MAIL_MAILER',
+                'mail_host' => 'MAIL_HOST',
+                'mail_port' => 'MAIL_PORT',
+                'mail_username' => 'MAIL_USERNAME',
+                'mail_password' => 'MAIL_PASSWORD',
+                'mail_encryption' => 'MAIL_ENCRYPTION',
+                'mail_from_address' => 'MAIL_FROM_ADDRESS',
+                'mail_from_name' => 'MAIL_FROM_NAME',
+            ];
+
+            foreach ($envMappings as $dbKey => $envKey) {
+                if (isset($settings[$dbKey])) {
+                    $value = $settings[$dbKey];
+                    
+                    // Escape special characters and wrap in quotes if needed
+                    if (is_string($value) && (strpos($value, ' ') !== false || strpos($value, '@') !== false)) {
+                        $value = '"' . addslashes($value) . '"';
+                    }
+                    
+                    // Check if the key already exists in .env
+                    if (preg_match("/^{$envKey}=.*$/m", $envContent)) {
+                        // Update existing key
+                        $envContent = preg_replace("/^{$envKey}=.*$/m", "{$envKey}={$value}", $envContent);
+                    } else {
+                        // Add new key at the end
+                        $envContent .= "\n{$envKey}={$value}";
+                    }
+                }
+            }
+
+            // Write back to .env file
+            file_put_contents($envPath, $envContent);
+            
+            \Log::info('Successfully updated .env file with mail settings');
+            
+        } catch (\Exception $e) {
+            \Log::error('Failed to update .env file: ' . $e->getMessage());
         }
     }
 }

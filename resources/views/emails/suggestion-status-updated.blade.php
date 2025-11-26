@@ -5,24 +5,39 @@
 @section('header-subtitle', 'Your tool suggestion status has been updated')
 
 @section('content')
-<p>Hello <strong>{{ $suggestion->user->name }}</strong>,</p>
+<p class="compact-text">Hello <strong>{{ $suggestion->user->name }}</strong>,</p>
 
-<p>We have an update regarding your tool suggestion for WordFix!</p>
+<p class="compact-text">Update on your tool suggestion:</p>
 
 @if($suggestion->status === 'approved')
     <div class="success-box">
-        <h3 style="margin: 0 0 12px 0; color: #065f46;">🎉 Great News - Suggestion Approved!</h3>
-        <p style="margin: 0;">Your tool suggestion has been approved and will be added to our development roadmap. We'll keep you updated on the progress!</p>
+        <div class="admin-reply-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Suggestion Approved!
+        </div>
+        <p style="margin: 0; font-size: 13px;">Great news! Your suggestion is approved and added to our roadmap.</p>
     </div>
 @elseif($suggestion->status === 'rejected')
-    <div class="warning-box">
-        <h3 style="margin: 0 0 12px 0; color: #92400e;">📝 Suggestion Status Update</h3>
-        <p style="margin: 0;">After careful consideration, we've decided not to proceed with this particular suggestion at this time. Thank you for your valuable input!</p>
+    <div class="error-box">
+        <div class="admin-reply-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Not Proceeding
+        </div>
+        <p style="margin: 0; font-size: 13px;">We can't proceed with this suggestion currently. Thank you for your input!</p>
     </div>
 @elseif($suggestion->status === 'under_review')
     <div class="info-box">
-        <h3 style="margin: 0 0 12px 0; color: #1e40af;">🔍 Under Review</h3>
-        <p style="margin: 0;">Your suggestion is currently under detailed review by our development team. We'll update you once we have more information.</p>
+        <div class="admin-reply-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            Under Review
+        </div>
+        <p style="margin: 0; font-size: 13px;">Your suggestion is being reviewed by our team. Updates coming soon!</p>
     </div>
 @endif
 
@@ -57,32 +72,38 @@
 </table>
 
 @if($suggestion->admin_notes)
-<div class="info-box">
-    <h4 style="margin: 0 0 8px 0; color: #1e40af;">💬 Note from our team:</h4>
-    <p style="margin: 0; font-style: italic;">"{{ $suggestion->admin_notes }}"</p>
+<div class="admin-reply">
+    <div class="admin-reply-header">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        Team Note
+    </div>
+    <p style="margin: 0; font-size: 13px; font-style: italic;">"{{ $suggestion->admin_notes }}"</p>
 </div>
 @endif
 
+<p class="compact-text">
 @if($suggestion->status === 'approved')
-<p>We're excited to work on implementing this tool! Development timelines can vary, but we'll keep you informed of major milestones.</p>
-
-<div style="text-align: center; margin: 24px 0;">
-    <a href="{{ url('/') }}" class="button">Explore Current Tools</a>
-</div>
+    We're excited to implement this! We'll keep you updated on progress.
 @elseif($suggestion->status === 'rejected')
-<p>While we couldn't move forward with this particular idea, we encourage you to submit more suggestions in the future. Your feedback helps us understand what our users need most.</p>
-
-<div style="text-align: center; margin: 24px 0;">
-    <a href="{{ url('/') }}" class="button">Submit Another Suggestion</a>
-</div>
+    We encourage more suggestions in the future. Your input helps us understand user needs.
 @else
-<div style="text-align: center; margin: 24px 0;">
-    <a href="{{ url('/') }}" class="button">Visit WordFix</a>
-</div>
+    Thank you for helping us improve WordFix with your suggestions!
 @endif
+</p>
 
-<p>Thank you for helping us improve WordFix with your valuable suggestions!</p>
+<div style="text-align: center; margin: 12px 0;">
+    <a href="{{ url('/') }}" class="button">
+        @if($suggestion->status === 'approved')
+            Explore Current Tools
+        @elseif($suggestion->status === 'rejected')
+            Submit Another Suggestion
+        @else
+            Visit WordFix
+        @endif
+    </a>
+</div>
 
-<p>Best regards,<br>
-<strong>The WordFix Team</strong></p>
+<p class="compact-text">Best regards,<br><strong>WordFix Team</strong></p>
 @endsection

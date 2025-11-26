@@ -61,6 +61,7 @@
                     <li><a href="/generators/number" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Number</a></li>
                     <li><a href="/generators/user-agent" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random User Agent</a></li>
                     <li><a href="/generators/password" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Password</a></li>
+                    <li><a href="/generators/random-phone-number" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Random Phone Number</a></li>
                     <li><a href="/generators/seo-url" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">SEO URL</a></li>
                     <li><a href="/generators/sequential-number" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">Sequential Number</a></li>
                     <li><a href="/generators/url-slug" class="text-xs text-gray-600 hover:text-blue-600 transition-colors">URL Slug</a></li>

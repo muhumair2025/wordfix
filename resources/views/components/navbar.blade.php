@@ -160,6 +160,7 @@
             title: 'Generators',
             items: [
                 { name: 'Lorem Ipsum Generator', url: '/generators/lorem-ipsum' },
+                { name: 'Random Phone Number Generator', url: '/generators/random-phone-number' },
                 { name: 'Random Color Generator', url: '/generators/color' },
                 { name: 'Random Date Generator', url: '/generators/date' },
                 { name: 'Random Email Generator', url: '/generators/email' },

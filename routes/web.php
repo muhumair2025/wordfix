@@ -382,4 +382,8 @@ Route::get('/generators/url-slug', function () {
 // Studio Routes
 Route::get('/studio/text-flow', function () {
     return view('studio.text-flow');
-});
+})->name('studio.text-flow');
+
+Route::get('/generators/random-phone-number', function () {
+    return view('generators.phone');
+})->name('generators.phone');

@@ -294,3 +294,17 @@ Route::get('/remove/vowels', function () {
 Route::get('/remove/trim-spaces', function () {
     return view('remove.trim-spaces');
 });
+
+// Replace Tools Routes
+Route::get('/replace/newline-with-commas', function () {
+    return view('replace.newline-with-commas');
+});
+Route::get('/replace/spaces', function () {
+    return view('replace.spaces');
+});
+Route::get('/replace/text-between', function () {
+    return view('replace.text-between');
+});
+Route::get('/replace/search-replace', function () {
+    return view('replace.search-replace');
+});

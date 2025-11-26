@@ -206,3 +206,91 @@ Route::get('/extract/random-lines', function () {
 Route::get('/extract/zip-codes', function () {
     return view('extract.zip-codes');
 });
+
+// Sorting Tools Routes
+Route::get('/sorting/alphabetical', function () {
+    return view('sorting.alphabetical');
+});
+Route::get('/sorting/length', function () {
+    return view('sorting.length');
+});
+Route::get('/sorting/random', function () {
+    return view('sorting.random');
+});
+Route::get('/sorting/numbers', function () {
+    return view('sorting.numbers');
+});
+
+// Remove Tools Routes
+Route::get('/remove/duplicate-lines', function () {
+    return view('remove.duplicate-lines');
+});
+Route::get('/remove/empty-lines', function () {
+    return view('remove.empty-lines');
+});
+Route::get('/remove/extra-spaces', function () {
+    return view('remove.extra-spaces');
+});
+Route::get('/remove/line-breaks', function () {
+    return view('remove.line-breaks');
+});
+Route::get('/remove/special-characters', function () {
+    return view('remove.special-characters');
+});
+Route::get('/remove/numbers', function () {
+    return view('remove.numbers');
+});
+Route::get('/remove/letters', function () {
+    return view('remove.letters');
+});
+Route::get('/remove/urls', function () {
+    return view('remove.urls');
+});
+Route::get('/remove/html-tags', function () {
+    return view('remove.html-tags');
+});
+Route::get('/remove/specific-words', function () {
+    return view('remove.specific-words');
+});
+Route::get('/remove/consonants', function () {
+    return view('remove.consonants');
+});
+Route::get('/remove/duplicate-words', function () {
+    return view('remove.duplicate-words');
+});
+Route::get('/remove/first-characters', function () {
+    return view('remove.first-characters');
+});
+Route::get('/remove/html-comments', function () {
+    return view('remove.html-comments');
+});
+Route::get('/remove/last-characters', function () {
+    return view('remove.last-characters');
+});
+Route::get('/remove/lines-with-word', function () {
+    return view('remove.lines-with-word');
+});
+Route::get('/remove/numbers-from-text', function () {
+    return view('remove.numbers-from-text');
+});
+Route::get('/remove/quotes', function () {
+    return view('remove.quotes');
+});
+Route::get('/remove/single-quotes', function () {
+    return view('remove.single-quotes');
+});
+Route::get('/remove/spaces', function () {
+    return view('remove.spaces');
+});
+Route::get('/remove/tabs', function () {
+    return view('remove.tabs');
+});
+Route::get('/remove/text-between', function () {
+    return view('remove.text-between');
+});
+Route::get('/remove/vowels', function () {
+    return view('remove.vowels');
+});
+Route::get('/remove/trim-spaces', function () {
+    return view('remove.trim-spaces');
+});

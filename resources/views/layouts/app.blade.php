@@ -501,6 +501,102 @@
                 color: #ffffff !important;
             }
 
+            /* Enhanced Light Mode Contrast */
+            [data-theme="light"] .bg-gray-50,
+            body:not([data-theme="dark"]) .bg-gray-50 {
+                background-color: #f8fafc !important; /* Slightly darker gray-50 */
+            }
+
+            [data-theme="light"] .bg-gray-100,
+            body:not([data-theme="dark"]) .bg-gray-100 {
+                background-color: #f1f5f9 !important; /* Enhanced gray-100 */
+            }
+
+            [data-theme="light"] .border-gray-200,
+            body:not([data-theme="dark"]) .border-gray-200 {
+                border-color: #d1d5db !important; /* More visible border */
+            }
+
+            [data-theme="light"] .border-gray-300,
+            body:not([data-theme="dark"]) .border-gray-300 {
+                border-color: #9ca3af !important; /* Stronger border */
+            }
+
+            [data-theme="light"] .shadow-md,
+            body:not([data-theme="dark"]) .shadow-md {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.1) !important;
+            }
+
+            [data-theme="light"] .shadow-lg,
+            body:not([data-theme="dark"]) .shadow-lg {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
+            }
+
+            /* Enhanced Text Contrast */
+            [data-theme="light"] .text-gray-600,
+            body:not([data-theme="dark"]) .text-gray-600 {
+                color: #4b5563 !important; /* Darker gray for better readability */
+            }
+
+            [data-theme="light"] .text-gray-700,
+            body:not([data-theme="dark"]) .text-gray-700 {
+                color: #374151 !important; /* Enhanced text contrast */
+            }
+
+            /* Minimal Input Focus Styles */
+            textarea:focus,
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            input[type="password"]:focus,
+            input[type="search"]:focus,
+            select:focus {
+                outline: none !important;
+                border-color: #d1d5db !important; /* Subtle gray border */
+                box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3) !important; /* Very subtle shadow */
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+            }
+
+            /* Dark Mode Input Focus */
+            [data-theme="dark"] textarea:focus,
+            [data-theme="dark"] input[type="text"]:focus,
+            [data-theme="dark"] input[type="email"]:focus,
+            [data-theme="dark"] input[type="password"]:focus,
+            [data-theme="dark"] input[type="search"]:focus,
+            [data-theme="dark"] select:focus {
+                border-color: #4b5563 !important; /* Subtle dark gray border */
+                box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.3) !important; /* Very subtle dark shadow */
+            }
+
+            /* Remove default focus rings */
+            *:focus {
+                outline: none !important;
+            }
+
+            /* Minimal button focus styles */
+            button:focus {
+                outline: none !important;
+                box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.2) !important;
+            }
+
+            [data-theme="dark"] button:focus {
+                box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.3) !important;
+            }
+
+            /* Override Tailwind focus styles */
+            .focus\\:ring-2:focus,
+            .focus\\:ring-blue-500:focus,
+            .focus\\:ring-indigo-500:focus {
+                --tw-ring-offset-shadow: none !important;
+                --tw-ring-shadow: none !important;
+                box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3) !important;
+            }
+
+            [data-theme="dark"] .focus\\:ring-2:focus,
+            [data-theme="dark"] .focus\\:ring-blue-500:focus,
+            [data-theme="dark"] .focus\\:ring-indigo-500:focus {
+                box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.3) !important;
+            }
+
             /* Mobile Menu Items */
             [data-theme="dark"] .mobile-menu a,
             [data-theme="dark"] .mobile-menu button,

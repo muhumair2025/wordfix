@@ -1,11 +1,11 @@
-<footer class="bg-white border-t border-gray-200 mt-6 md:mt-8">
+<footer class="bg-white border-t border-gray-200 mt-6 md:mt-8" :class="{'bg-gray-900 border-gray-700': document.body.getAttribute('data-theme') === 'dark'}">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Main Footer Content -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <!-- About WordFix -->
             <div class="lg:col-span-2">
                 <a href="/" class="inline-block mb-4">
-                    <img src="{{ asset('images/logo.png') }}" alt="WordFix" class="h-8">
+                    <img src="{{ asset('images/logo.png') }}" alt="WordFix" class="h-8" id="footer-logo" :class="{'dark-mode-logo': document.body.getAttribute('data-theme') === 'dark'}">
                 </a>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">
                     WordFix is a comprehensive suite of 100+ free online text manipulation tools designed for writers, developers, students, and professionals. Transform, format, analyze, and process text with our clean, fast, and secure web-based tools.

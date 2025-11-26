@@ -173,6 +173,12 @@
                 { name: 'Sequential Number Generator', url: '/generators/sequential-number' },
                 { name: 'URL Slug Generator', url: '/generators/url-slug' }
             ]
+        },
+        'studio': {
+            title: '✨ Studio',
+            items: [
+                { name: 'TextFlow Pipeline', url: '/studio/text-flow' }
+            ]
         }
     }
 }" class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">

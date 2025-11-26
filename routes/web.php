@@ -378,3 +378,8 @@ Route::get('/generators/sequential-number', function () {
 Route::get('/generators/url-slug', function () {
     return view('generators.url-slug');
 });
+
+// Studio Routes
+Route::get('/studio/text-flow', function () {
+    return view('studio.text-flow');
+});

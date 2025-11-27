@@ -112,24 +112,24 @@
 
 <!-- Suggest Tool Modal -->
 <div id="suggestToolModal" class="fixed inset-0 z-50 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
-    <div class="flex items-center justify-center min-h-screen p-2 sm:p-4 overflow-y-auto">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[95vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 my-4" id="suggestToolModalContent">
+    <div class="flex items-start justify-center min-h-screen p-2 sm:p-4 pt-4 sm:pt-8 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 my-2" id="suggestToolModalContent">
             <!-- Modal Header -->
-            <div class="modal-header bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl p-6">
+            <div class="modal-header bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl p-4">
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-white bg-opacity-20 rounded-full p-2">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-white bg-opacity-20 rounded-full p-1.5">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">Suggest a New Tool</h3>
-                            <p class="text-blue-100 text-sm">Help us improve WordFix</p>
+                            <h3 class="text-lg font-bold text-white">Suggest a Tool</h3>
+                            <p class="text-blue-100 text-xs">Help us improve WordFix</p>
                         </div>
                     </div>
-                    <button onclick="closeSuggestToolModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="closeSuggestToolModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1.5 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
@@ -137,42 +137,42 @@
             </div>
             
             <!-- Modal Body -->
-            <div class="p-4 sm:p-6">
-                <form id="suggestToolForm" class="modal-form space-y-4 sm:space-y-5">
+            <div class="p-4">
+                <form id="suggestToolForm" class="modal-form space-y-3">
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
                                 </svg>
                                 Tool Name
                             </span>
                         </label>
-                        <input type="text" id="toolName" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm sm:text-base" placeholder="e.g., Password Strength Checker">
+                        <input type="text" id="toolName" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm" placeholder="e.g., Password Strength Checker">
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                                 </svg>
                                 Description
                             </span>
                         </label>
-                        <textarea id="toolDescription" rows="3" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm sm:text-base" placeholder="Describe what this tool should do and how it would help users..."></textarea>
+                        <textarea id="toolDescription" rows="2" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm" placeholder="Describe what this tool should do and how it would help users..."></textarea>
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                 </svg>
                                 Category
                             </span>
                         </label>
-                        <select id="toolCategory" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 bg-white text-sm sm:text-base">
+                        <select id="toolCategory" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 bg-white text-sm">
                             <option value="">Select a category</option>
                             <option value="basic">Basic Tools</option>
                             <option value="counter">Counter Tools</option>
@@ -191,23 +191,23 @@
                     
                     <!-- Use Case -->
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                                 </svg>
                                 Use Case (Optional)
                             </span>
                         </label>
-                        <textarea id="useCase" rows="2" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm sm:text-base" placeholder="When would this tool be useful? What problem does it solve?"></textarea>
+                        <textarea id="useCase" rows="2" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm" placeholder="When would this tool be useful? What problem does it solve?"></textarea>
                     </div>
                     
-                    <div class="modal-buttons flex flex-col sm:flex-row gap-3 pt-4 sticky bottom-0 bg-white">
-                        <button type="button" onclick="closeSuggestToolModal()" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium text-sm sm:text-base">
+                    <div class="modal-buttons flex gap-2 pt-3 sticky bottom-0 bg-white border-t border-gray-100 -mx-4 px-4 mt-4">
+                        <button type="button" onclick="closeSuggestToolModal()" class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 font-medium text-sm">
                             Cancel
                         </button>
-                        <button type="submit" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl text-sm sm:text-base">
-                            Submit Suggestion
+                        <button type="submit" class="flex-1 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-medium shadow-md hover:shadow-lg text-sm">
+                            Submit
                         </button>
                     </div>
                 </form>
@@ -218,24 +218,24 @@
 
 <!-- Feedback Modal -->
 <div id="feedbackModal" class="fixed inset-0 z-50 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
-    <div class="flex items-center justify-center min-h-screen p-2 sm:p-4 overflow-y-auto">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[95vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 my-4" id="feedbackModalContent">
+    <div class="flex items-start justify-center min-h-screen p-2 sm:p-4 pt-4 sm:pt-8 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 my-2" id="feedbackModalContent">
             <!-- Modal Header -->
-            <div class="modal-header bg-gradient-to-r from-green-600 to-green-700 rounded-t-2xl p-6">
+            <div class="modal-header bg-gradient-to-r from-green-600 to-green-700 rounded-t-2xl p-4">
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-white bg-opacity-20 rounded-full p-2">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-white bg-opacity-20 rounded-full p-1.5">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">Provide Feedback</h3>
-                            <p class="text-green-100 text-sm">Help us make WordFix better</p>
+                            <h3 class="text-lg font-bold text-white">Feedback</h3>
+                            <p class="text-green-100 text-xs">Help us improve</p>
                         </div>
                     </div>
-                    <button onclick="closeFeedbackModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="closeFeedbackModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1.5 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
@@ -243,18 +243,18 @@
             </div>
             
             <!-- Modal Body -->
-            <div class="p-4 sm:p-6">
-                <form id="feedbackForm" class="modal-form space-y-4 sm:space-y-5">
+            <div class="p-4">
+                <form id="feedbackForm" class="modal-form space-y-3">
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
                                 </svg>
                                 Feedback Type
                             </span>
                         </label>
-                        <select id="feedbackType" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white text-sm sm:text-base">
+                        <select id="feedbackType" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white text-sm">
                             <option value="bug_report">🐛 Bug Report</option>
                             <option value="feature_request">✨ Feature Request</option>
                             <option value="improvement">🚀 Improvement Suggestion</option>
@@ -264,28 +264,28 @@
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                 </svg>
                                 Subject
                             </span>
                         </label>
-                        <input type="text" id="feedbackSubject" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm sm:text-base" placeholder="Brief description of your feedback">
+                        <input type="text" id="feedbackSubject" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm" placeholder="Brief description of your feedback">
                     </div>
                     
                     <!-- Rating -->
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
                                 </svg>
                                 Rating (Optional)
                             </span>
                         </label>
-                        <select id="rating" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white text-sm sm:text-base">
+                        <select id="rating" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white text-sm">
                             <option value="">Select a rating</option>
                             <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
                             <option value="4">⭐⭐⭐⭐ Good</option>
@@ -296,23 +296,23 @@
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-semibold text-gray-800 mb-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                                 </svg>
                                 Details
                             </span>
                         </label>
-                        <textarea id="feedbackDetails" rows="4" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm sm:text-base" placeholder="Please provide detailed feedback. The more specific, the better we can help!"></textarea>
+                        <textarea id="feedbackDetails" rows="3" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm" placeholder="Please provide detailed feedback. The more specific, the better we can help!"></textarea>
                     </div>
                     
-                    <div class="modal-buttons flex flex-col sm:flex-row gap-3 pt-4 sticky bottom-0 bg-white">
-                        <button type="button" onclick="closeFeedbackModal()" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium text-sm sm:text-base">
+                    <div class="modal-buttons flex gap-2 pt-3 sticky bottom-0 bg-white border-t border-gray-100 -mx-4 px-4 mt-4">
+                        <button type="button" onclick="closeFeedbackModal()" class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 font-medium text-sm">
                             Cancel
                         </button>
-                        <button type="submit" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl text-sm sm:text-base">
-                            Send Feedback
+                        <button type="submit" class="flex-1 px-4 py-2.5 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-200 font-medium shadow-md hover:shadow-lg text-sm">
+                            Send
                         </button>
                     </div>
                 </form>
@@ -320,6 +320,51 @@
         </div>
     </div>
 </div>
+
+<style>
+/* Mobile-optimized modal styles */
+@media (max-width: 640px) {
+    .modal-container {
+        align-items: flex-start !important;
+        padding-top: 1rem !important;
+    }
+    
+    .modal-content {
+        margin: 0.5rem !important;
+        max-height: calc(100vh - 2rem) !important;
+        width: calc(100vw - 1rem) !important;
+        max-width: calc(100vw - 1rem) !important;
+    }
+    
+    .modal-form {
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+    }
+    
+    .modal-buttons {
+        position: sticky;
+        bottom: 0;
+        background: white;
+        z-index: 10;
+    }
+    
+    /* Prevent body scroll when modal is open */
+    body.modal-open {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+    }
+}
+
+/* Ensure form inputs are properly sized on mobile */
+@media (max-width: 480px) {
+    .modal-form input,
+    .modal-form select,
+    .modal-form textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+</style>
 
 <script>
 // Suggest Tool Modal Functions
@@ -331,8 +376,16 @@ function openSuggestToolModal() {
     document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     
+    // Store current scroll position for mobile
+    if (window.innerWidth <= 640) {
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.width = '100%';
+    }
+    
     // Add responsive classes
-    modal.querySelector('.flex.items-center.justify-center').classList.add('modal-container');
+    const container = modal.querySelector('.flex');
+    container.classList.add('modal-container');
     modalContent.classList.add('modal-content');
     
     // Animate modal entrance
@@ -353,7 +406,17 @@ function closeSuggestToolModal() {
     setTimeout(() => {
         modal.classList.add('hidden');
         document.body.classList.remove('modal-open');
-        document.body.style.overflow = 'auto';
+        
+        // Restore scroll position on mobile
+        if (window.innerWidth <= 640) {
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
+        
+        document.body.style.overflow = '';
         document.getElementById('suggestToolForm').reset();
     }, 300);
 }
@@ -367,8 +430,16 @@ function openFeedbackModal() {
     document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     
+    // Store current scroll position for mobile
+    if (window.innerWidth <= 640) {
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.width = '100%';
+    }
+    
     // Add responsive classes
-    modal.querySelector('.flex.items-center.justify-center').classList.add('modal-container');
+    const container = modal.querySelector('.flex');
+    container.classList.add('modal-container');
     modalContent.classList.add('modal-content');
     
     // Animate modal entrance
@@ -389,7 +460,17 @@ function closeFeedbackModal() {
     setTimeout(() => {
         modal.classList.add('hidden');
         document.body.classList.remove('modal-open');
-        document.body.style.overflow = 'auto';
+        
+        // Restore scroll position on mobile
+        if (window.innerWidth <= 640) {
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
+        
+        document.body.style.overflow = '';
         document.getElementById('feedbackForm').reset();
     }, 300);
 }

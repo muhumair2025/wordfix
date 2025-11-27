@@ -1029,6 +1029,73 @@
                     height: 1.5rem !important;
                 }
             }
+            
+            /* Modal Responsiveness Enhancements */
+            @media (max-width: 640px) {
+                /* Ensure modals work on very small screens */
+                .modal-container {
+                    padding: 0.5rem !important;
+                    min-height: 100vh !important;
+                }
+                
+                /* Modal content adjustments */
+                .modal-content {
+                    max-height: 95vh !important;
+                    overflow-y: auto !important;
+                    margin: 1rem 0 !important;
+                }
+                
+                /* Sticky button container */
+                .modal-buttons {
+                    position: sticky !important;
+                    bottom: 0 !important;
+                    background: white !important;
+                    padding-top: 1rem !important;
+                    margin-top: 1rem !important;
+                    border-top: 1px solid #e5e7eb !important;
+                }
+                
+                /* Dark mode modal buttons */
+                [data-theme="dark"] .modal-buttons {
+                    background: #1a1a1a !important;
+                    border-top-color: #333333 !important;
+                }
+                
+                /* Form field adjustments for mobile */
+                .modal-form input,
+                .modal-form textarea,
+                .modal-form select {
+                    font-size: 16px !important; /* Prevents zoom on iOS */
+                    padding: 0.75rem !important;
+                }
+                
+                /* Modal header adjustments */
+                .modal-header {
+                    padding: 1rem !important;
+                }
+                
+                .modal-header h3 {
+                    font-size: 1.125rem !important;
+                }
+                
+                .modal-header p {
+                    font-size: 0.875rem !important;
+                }
+            }
+            
+            /* Tablet modal optimizations */
+            @media (min-width: 641px) and (max-width: 1024px) {
+                .modal-content {
+                    max-height: 90vh !important;
+                }
+            }
+            
+            /* Prevent body scroll when modal is open */
+            body.modal-open {
+                overflow: hidden !important;
+                position: fixed !important;
+                width: 100% !important;
+            }
         </style>
         
         

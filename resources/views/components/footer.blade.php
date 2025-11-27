@@ -112,10 +112,10 @@
 
 <!-- Suggest Tool Modal -->
 <div id="suggestToolModal" class="fixed inset-0 z-50 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
-    <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0" id="suggestToolModalContent">
+    <div class="flex items-center justify-center min-h-screen p-2 sm:p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[95vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 my-4" id="suggestToolModalContent">
             <!-- Modal Header -->
-            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl p-6">
+            <div class="modal-header bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl p-6">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center gap-3">
                         <div class="bg-white bg-opacity-20 rounded-full p-2">
@@ -137,8 +137,8 @@
             </div>
             
             <!-- Modal Body -->
-            <div class="p-6">
-                <form id="suggestToolForm" class="space-y-5">
+            <div class="p-4 sm:p-6">
+                <form id="suggestToolForm" class="modal-form space-y-4 sm:space-y-5">
                     <div>
                         <label class="block text-sm font-semibold text-gray-800 mb-2">
                             <span class="flex items-center gap-2">
@@ -148,7 +148,7 @@
                                 Tool Name
                             </span>
                         </label>
-                        <input type="text" id="toolName" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400" placeholder="e.g., Password Strength Checker">
+                        <input type="text" id="toolName" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm sm:text-base" placeholder="e.g., Password Strength Checker">
                     </div>
                     
                     <div>
@@ -160,7 +160,7 @@
                                 Description
                             </span>
                         </label>
-                        <textarea id="toolDescription" rows="3" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none" placeholder="Describe what this tool should do and how it would help users..."></textarea>
+                        <textarea id="toolDescription" rows="3" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm sm:text-base" placeholder="Describe what this tool should do and how it would help users..."></textarea>
                     </div>
                     
                     <div>
@@ -172,7 +172,7 @@
                                 Category
                             </span>
                         </label>
-                        <select id="toolCategory" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 bg-white">
+                        <select id="toolCategory" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 bg-white text-sm sm:text-base">
                             <option value="">Select a category</option>
                             <option value="basic">Basic Tools</option>
                             <option value="counter">Counter Tools</option>
@@ -199,14 +199,14 @@
                                 Use Case (Optional)
                             </span>
                         </label>
-                        <textarea id="useCase" rows="2" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none" placeholder="When would this tool be useful? What problem does it solve?"></textarea>
+                        <textarea id="useCase" rows="2" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm sm:text-base" placeholder="When would this tool be useful? What problem does it solve?"></textarea>
                     </div>
                     
-                    <div class="flex gap-3 pt-4">
-                        <button type="button" onclick="closeSuggestToolModal()" class="flex-1 px-6 py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium">
+                    <div class="modal-buttons flex flex-col sm:flex-row gap-3 pt-4 sticky bottom-0 bg-white">
+                        <button type="button" onclick="closeSuggestToolModal()" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium text-sm sm:text-base">
                             Cancel
                         </button>
-                        <button type="submit" class="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl">
+                        <button type="submit" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl text-sm sm:text-base">
                             Submit Suggestion
                         </button>
                     </div>
@@ -218,10 +218,10 @@
 
 <!-- Feedback Modal -->
 <div id="feedbackModal" class="fixed inset-0 z-50 hidden" style="background-color: rgba(0, 0, 0, 0.5);">
-    <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0" id="feedbackModalContent">
+    <div class="flex items-center justify-center min-h-screen p-2 sm:p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[95vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 my-4" id="feedbackModalContent">
             <!-- Modal Header -->
-            <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-t-2xl p-6">
+            <div class="modal-header bg-gradient-to-r from-green-600 to-green-700 rounded-t-2xl p-6">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center gap-3">
                         <div class="bg-white bg-opacity-20 rounded-full p-2">
@@ -243,8 +243,8 @@
             </div>
             
             <!-- Modal Body -->
-            <div class="p-6">
-                <form id="feedbackForm" class="space-y-5">
+            <div class="p-4 sm:p-6">
+                <form id="feedbackForm" class="modal-form space-y-4 sm:space-y-5">
                     <div>
                         <label class="block text-sm font-semibold text-gray-800 mb-2">
                             <span class="flex items-center gap-2">
@@ -254,7 +254,7 @@
                                 Feedback Type
                             </span>
                         </label>
-                        <select id="feedbackType" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white">
+                        <select id="feedbackType" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white text-sm sm:text-base">
                             <option value="bug_report">🐛 Bug Report</option>
                             <option value="feature_request">✨ Feature Request</option>
                             <option value="improvement">🚀 Improvement Suggestion</option>
@@ -272,7 +272,7 @@
                                 Subject
                             </span>
                         </label>
-                        <input type="text" id="feedbackSubject" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400" placeholder="Brief description of your feedback">
+                        <input type="text" id="feedbackSubject" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm sm:text-base" placeholder="Brief description of your feedback">
                     </div>
                     
                     <!-- Rating -->
@@ -285,7 +285,7 @@
                                 Rating (Optional)
                             </span>
                         </label>
-                        <select id="rating" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white">
+                        <select id="rating" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 bg-white text-sm sm:text-base">
                             <option value="">Select a rating</option>
                             <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
                             <option value="4">⭐⭐⭐⭐ Good</option>
@@ -304,14 +304,14 @@
                                 Details
                             </span>
                         </label>
-                        <textarea id="feedbackDetails" rows="4" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none" placeholder="Please provide detailed feedback. The more specific, the better we can help!"></textarea>
+                        <textarea id="feedbackDetails" rows="4" class="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 text-gray-800 placeholder-gray-400 resize-none text-sm sm:text-base" placeholder="Please provide detailed feedback. The more specific, the better we can help!"></textarea>
                     </div>
                     
-                    <div class="flex gap-3 pt-4">
-                        <button type="button" onclick="closeFeedbackModal()" class="flex-1 px-6 py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium">
+                    <div class="modal-buttons flex flex-col sm:flex-row gap-3 pt-4 sticky bottom-0 bg-white">
+                        <button type="button" onclick="closeFeedbackModal()" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 border-2 border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium text-sm sm:text-base">
                             Cancel
                         </button>
-                        <button type="submit" class="flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl">
+                        <button type="submit" class="flex-1 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-200 font-medium shadow-lg hover:shadow-xl text-sm sm:text-base">
                             Send Feedback
                         </button>
                     </div>
@@ -328,7 +328,12 @@ function openSuggestToolModal() {
     const modalContent = document.getElementById('suggestToolModalContent');
     
     modal.classList.remove('hidden');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
+    
+    // Add responsive classes
+    modal.querySelector('.flex.items-center.justify-center').classList.add('modal-container');
+    modalContent.classList.add('modal-content');
     
     // Animate modal entrance
     setTimeout(() => {
@@ -347,6 +352,7 @@ function closeSuggestToolModal() {
     
     setTimeout(() => {
         modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
         document.body.style.overflow = 'auto';
         document.getElementById('suggestToolForm').reset();
     }, 300);
@@ -358,7 +364,12 @@ function openFeedbackModal() {
     const modalContent = document.getElementById('feedbackModalContent');
     
     modal.classList.remove('hidden');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
+    
+    // Add responsive classes
+    modal.querySelector('.flex.items-center.justify-center').classList.add('modal-container');
+    modalContent.classList.add('modal-content');
     
     // Animate modal entrance
     setTimeout(() => {
@@ -377,6 +388,7 @@ function closeFeedbackModal() {
     
     setTimeout(() => {
         modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
         document.body.style.overflow = 'auto';
         document.getElementById('feedbackForm').reset();
     }, 300);

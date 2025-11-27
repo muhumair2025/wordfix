@@ -1,459 +1,784 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://wordfix.com/</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/counter</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/counter</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/formatter</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/formatter</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/extract</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/sorting</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/sorting</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/remove</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/replace</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/replace</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/conversions</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/generators</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/generators</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/special-effects</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/upper-case</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/alternate-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/lower-case</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/capitalize-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/title-case</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/invert-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/sentence-case</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/lower-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/capitalize-words</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/sentence-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/alternate-case</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/strikethrough</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/invert-case</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/title-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/strikethrough</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/underline</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/basic/underline</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/basic/upper-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/counter/word-counter</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/counter/character-word-counter</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/counter/count-each-line</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/counter/count-each-line</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/counter/bracket-tag-counter</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/counter/bracket-tag-counter</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/formatter/css-beautifier</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/formatter/css-beautifier</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/formatter/html-beautifier</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/formatter/html-beautifier</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/formatter/javascript-beautifier</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/formatter/javascript-beautifier</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/formatter/json-beautifier</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/formatter/json-beautifier</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/formatter/sql-beautifier</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/formatter/sql-beautifier</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/add-prefix</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/add-number-to-each-line</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/add-suffix</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/add-string-after-characters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/add-line-numbers</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/add-text-to-each-line</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/reverse-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/column-to-comma</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/reverse-words</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/commas-between-numbers</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/reverse-lines</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/comma-to-column</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/shuffle-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/double-space-to-single</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/shuffle-words</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/single-space-to-double</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/modify/shuffle-lines</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/keep-first-characters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/extract/extract-numbers</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/keep-last-characters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/extract/extract-urls</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/keep-lines-with-word</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/extract/extract-emails</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/keep-lines-with-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/extract/extract-phone-numbers</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/merge-text-lists</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/extract/extract-unique-lines</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/number-to-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/sorting/sort-lines-alphabetically</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/prefix-suffix</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/sorting/sort-lines-by-length</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/position-text-addition</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/sorting/sort-words-alphabetically</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/modify/trim-text</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/sorting/sort-numbers</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/backward</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-empty-lines</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/binary-to-text</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-duplicate-lines</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/bold</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-extra-spaces</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/bold-gothic</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-line-breaks</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/bold-italic</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-numbers</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/circled</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-letters</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/cursive-bold</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/remove/remove-special-characters</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/flip-text</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/replace/find-and-replace</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/flip-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/replace/replace-spaces</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/gothic</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/replace/replace-line-breaks</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/italic</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/replace/replace-multiple-spaces</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/outline</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/text-to-binary</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/parentheses</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/binary-to-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/pascal-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/text-to-hex</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/reverse-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/hex-to-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/slashed</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/base64-encode</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/snake-case</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/base64-decode</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/upside-down</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/url-encode</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/special-effects/wide-text</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/conversions/url-decode</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/emails</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/generators/random-text-generator</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/hex-colors</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/generators/lorem-ipsum-generator</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/image-urls</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/generators/random-number-generator</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/ip-address</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/generators/random-password-generator</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/phone-numbers</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/generators/random-word-generator</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/numbers</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/special-effects/zalgo-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/text-between</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/special-effects/upside-down-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/urls</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/special-effects/mirror-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/random-lines</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/special-effects/bubble-text</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/extract/zip-codes</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wordfix.com/special-effects/small-caps</loc>
-    <lastmod>2025-11-27T06:41:05.748894Z</lastmod>
+    <loc>https://wordfix.comm/sorting/alphabetical</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://wordfix.comm/sorting/length</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/sorting/random</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/sorting/numbers</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/consonants</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/duplicate-lines</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/duplicate-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/empty-lines</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/extra-spaces</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/first-characters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/html-comments</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/html-tags</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/last-characters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/letters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/line-breaks</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/lines-with-word</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/numbers</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/numbers-from-text</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/quotes</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/single-quotes</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/spaces</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/special-characters</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/specific-words</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/tabs</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/text-between</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/urls</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/vowels</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/remove/trim-spaces</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/replace/newline-with-commas</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/replace/spaces</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/replace/text-between</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/replace/search-replace</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/base64-decoder</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/base64-encoder</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/date</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/decimal-to-string</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/html-entities</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/string-to-decimal</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/text-to-binary</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/url-decode</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/conversions/url-encode</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/lorem-ipsum</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/random-phone-number</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/color</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/date</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/email</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/ip</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/ipv6</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/mac</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/number</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/user-agent</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/password</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/seo-url</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/sequential-number</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfix.comm/generators/url-slug</loc>
+    <lastmod>2025-11-27T07:20:11.738208Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+<!-- Generated 2025-11-27 07:20:11 - 118 tools included -->
 </urlset>

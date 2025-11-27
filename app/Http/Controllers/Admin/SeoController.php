@@ -118,8 +118,27 @@ class SeoController extends Controller
         try {
             $sitemap = $this->buildSitemap();
             File::put(public_path('sitemap.xml'), $sitemap);
-            return redirect()->route('admin.seo.index')->with('success', 'Sitemap.xml generated successfully!');
+            
+            // Count URLs in sitemap for feedback
+            $urlCount = substr_count($sitemap, '<url>');
+            $configFile = resource_path('meta/sitemap-config.json');
+            $config = File::exists($configFile) ? json_decode(File::get($configFile), true) : [];
+            $baseUrl = $config['base_url'] ?? config('app.url', 'https://wordfix.com');
+            
+            $message = "Sitemap.xml generated successfully! Generated {$urlCount} URLs using base URL: {$baseUrl}";
+            
+            // Redirect back to the referring page or sitemap config if from there
+            $referrer = $request->header('referer');
+            if ($referrer && str_contains($referrer, 'sitemap-config')) {
+                return redirect()->route('admin.seo.sitemap-config')->with('success', $message);
+            }
+            
+            return redirect()->route('admin.seo.index')->with('success', $message);
         } catch (\Exception $e) {
+            $referrer = $request->header('referer');
+            if ($referrer && str_contains($referrer, 'sitemap-config')) {
+                return redirect()->route('admin.seo.sitemap-config')->with('error', 'Failed to generate sitemap.xml: ' . $e->getMessage());
+            }
             return redirect()->route('admin.seo.index')->with('error', 'Failed to generate sitemap.xml: ' . $e->getMessage());
         }
     }
@@ -290,17 +309,27 @@ class SeoController extends Controller
     public function sitemapConfig()
     {
         $configFile = resource_path('meta/sitemap-config.json');
-        $config = File::exists($configFile) ? json_decode(File::get($configFile), true) : [
+        $defaultConfig = [
             'base_url' => config('app.url', 'https://wordfix.com'),
             'default_changefreq' => 'monthly',
-            'default_priority' => '0.7',
-            'homepage_priority' => '1.0',
-            'category_priority' => '0.8',
-            'tool_priority' => '0.7',
-            'exclude_pages' => ['/admin', '/login', '/register'],
+            'homepage_priority' => 1.0,
+            'category_priority' => 0.8,
+            'tool_priority' => 0.7,
+            'exclude_pages' => ['/admin', '/login', '/register', '/password'],
             'include_lastmod' => true,
             'auto_generate' => false
         ];
+        
+        $config = $defaultConfig;
+        if (File::exists($configFile)) {
+            $content = File::get($configFile);
+            if (!empty(trim($content))) {
+                $decoded = json_decode($content, true);
+                if (is_array($decoded)) {
+                    $config = array_merge($defaultConfig, $decoded);
+                }
+            }
+        }
         
         return view('admin.seo.sitemap-config', compact('config'));
     }
@@ -313,7 +342,6 @@ class SeoController extends Controller
         $request->validate([
             'base_url' => 'required|url',
             'default_changefreq' => 'required|in:always,hourly,daily,weekly,monthly,yearly,never',
-            'default_priority' => 'required|numeric|min:0|max:1',
             'homepage_priority' => 'required|numeric|min:0|max:1',
             'category_priority' => 'required|numeric|min:0|max:1',
             'tool_priority' => 'required|numeric|min:0|max:1',
@@ -324,9 +352,8 @@ class SeoController extends Controller
         
         try {
             $config = [
-                'base_url' => $request->base_url,
+                'base_url' => rtrim($request->base_url, '/'), // Remove trailing slash
                 'default_changefreq' => $request->default_changefreq,
-                'default_priority' => (float) $request->default_priority,
                 'homepage_priority' => (float) $request->homepage_priority,
                 'category_priority' => (float) $request->category_priority,
                 'tool_priority' => (float) $request->tool_priority,
@@ -354,17 +381,28 @@ class SeoController extends Controller
      */
     private function buildSitemap()
     {
-        // Load sitemap configuration
+        // Load sitemap configuration with proper defaults
         $configFile = resource_path('meta/sitemap-config.json');
-        $config = File::exists($configFile) ? json_decode(File::get($configFile), true) : [
+        $defaultConfig = [
             'base_url' => config('app.url', 'https://wordfix.com'),
             'default_changefreq' => 'monthly',
-            'homepage_priority' => '1.0',
-            'category_priority' => '0.8',
-            'tool_priority' => '0.7',
-            'exclude_pages' => ['/admin', '/login', '/register'],
+            'homepage_priority' => 1.0,
+            'category_priority' => 0.8,
+            'tool_priority' => 0.7,
+            'exclude_pages' => ['/admin', '/login', '/register', '/password'],
             'include_lastmod' => true
         ];
+        
+        $config = $defaultConfig;
+        if (File::exists($configFile)) {
+            $content = File::get($configFile);
+            if (!empty(trim($content))) {
+                $decoded = json_decode($content, true);
+                if (is_array($decoded)) {
+                    $config = array_merge($defaultConfig, $decoded);
+                }
+            }
+        }
         
         $baseUrl = rtrim($config['base_url'], '/');
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
@@ -407,21 +445,39 @@ class SeoController extends Controller
             }
         }
         
-        // Add individual tool pages
+        // Add individual tool pages - ensure ALL tools are included
         $tools = $this->getAllTools();
+        $toolCount = 0;
         foreach ($tools as $category => $categoryTools) {
-            foreach ($categoryTools as $tool) {
-                $toolUrl = "/{$category}/{$tool['slug']}";
-                if (!in_array($toolUrl, $config['exclude_pages'])) {
-                    $xml .= "  <url>\n";
-                    $xml .= "    <loc>{$baseUrl}{$toolUrl}</loc>\n";
-                    if ($lastmod) $xml .= "    <lastmod>{$lastmod}</lastmod>\n";
-                    $xml .= "    <changefreq>{$config['default_changefreq']}</changefreq>\n";
-                    $xml .= "    <priority>{$config['tool_priority']}</priority>\n";
-                    $xml .= "  </url>\n";
+            if (is_array($categoryTools)) {
+                foreach ($categoryTools as $tool) {
+                    if (isset($tool['slug'])) {
+                        $toolUrl = "/{$category}/{$tool['slug']}";
+                        // Check if this specific URL is excluded
+                        $isExcluded = false;
+                        foreach ($config['exclude_pages'] as $excludePage) {
+                            if (trim($excludePage) === $toolUrl) {
+                                $isExcluded = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!$isExcluded) {
+                            $xml .= "  <url>\n";
+                            $xml .= "    <loc>{$baseUrl}{$toolUrl}</loc>\n";
+                            if ($lastmod) $xml .= "    <lastmod>{$lastmod}</lastmod>\n";
+                            $xml .= "    <changefreq>{$config['default_changefreq']}</changefreq>\n";
+                            $xml .= "    <priority>{$config['tool_priority']}</priority>\n";
+                            $xml .= "  </url>\n";
+                            $toolCount++;
+                        }
+                    }
                 }
             }
         }
+        
+        // Add comment with tool count for debugging
+        $xml .= "<!-- Generated " . date('Y-m-d H:i:s') . " - {$toolCount} tools included -->\n";
         
         $xml .= '</urlset>';
         

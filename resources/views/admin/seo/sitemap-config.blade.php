@@ -229,8 +229,23 @@
             <div><span class="text-blue-600">Include Last Modified:</span> {{ $config['include_lastmod'] ? 'Yes' : 'No' }}</div>
             <div><span class="text-blue-600">Auto Generate:</span> {{ $config['auto_generate'] ? 'Yes' : 'No' }}</div>
             @if(!empty($config['exclude_pages']))
-                <div><span class="text-blue-600">Excluded Pages:</span> {{ implode(', ', $config['exclude_pages']) }}</div>
+                <div><span class="text-blue-600">Excluded Pages:</span> {{ is_array($config['exclude_pages']) ? implode(', ', $config['exclude_pages']) : $config['exclude_pages'] }}</div>
             @endif
+            
+            @php
+                // Calculate estimated URLs that will be generated
+                $categories = ['basic', 'counter', 'formatter', 'modify', 'extract', 'sorting', 'remove', 'replace', 'conversions', 'generators', 'special-effects'];
+                $estimatedUrls = 1; // Homepage
+                $estimatedUrls += count($categories); // Category pages
+                
+                // Estimate tool pages (this is a rough estimate)
+                $toolEstimate = 119; // Total tools as per memory
+                $estimatedUrls += $toolEstimate;
+            @endphp
+            <div class="mt-3 pt-3 border-t border-gray-200">
+                <div><span class="text-green-600">Estimated URLs:</span> ~{{ $estimatedUrls }} (1 homepage + {{ count($categories) }} categories + ~{{ $toolEstimate }} tools)</div>
+                <div class="text-xs text-gray-500 mt-1">Actual count may vary based on excluded pages and available tools</div>
+            </div>
         </div>
     </div>
 </div>

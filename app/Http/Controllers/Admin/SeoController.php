@@ -789,13 +789,21 @@ class SeoController extends Controller
      */
     public function updateSeoSettings(Request $request)
     {
+        // Add debugging
+        \Log::info('SEO Settings Update Request', [
+            'method' => $request->method(),
+            'url' => $request->url(),
+            'has_file' => $request->hasFile('favicon'),
+            'input' => $request->except(['favicon', '_token'])
+        ]);
+        
         $request->validate([
             'google_site_verification' => 'nullable|string|max:255',
             'bing_site_verification' => 'nullable|string|max:255',
             'yandex_site_verification' => 'nullable|string|max:255',
             'pinterest_site_verification' => 'nullable|string|max:255',
             'custom_head_tags' => 'nullable|string|max:2000',
-            'favicon' => 'nullable|image|mimes:ico,png,jpg,jpeg,gif,svg|max:2048'
+            'favicon' => 'nullable|file|mimes:ico,png,jpg,jpeg,gif,svg|max:2048'
         ]);
         
         try {
@@ -834,8 +842,14 @@ class SeoController extends Controller
             
             File::put($settingsFile, json_encode($settings, JSON_PRETTY_PRINT));
             
+            \Log::info('SEO Settings Updated Successfully', ['settings' => $settings]);
+            
             return redirect()->route('admin.seo.index')->with('success', 'SEO settings updated successfully!');
         } catch (\Exception $e) {
+            \Log::error('SEO Settings Update Failed', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
             return redirect()->route('admin.seo.index')->with('error', 'Failed to update SEO settings: ' . $e->getMessage());
         }
     }

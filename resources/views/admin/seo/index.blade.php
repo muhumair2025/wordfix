@@ -10,14 +10,42 @@
 
 <!-- Success/Error Messages -->
 @if(session('success'))
-    <div class="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-        {{ session('success') }}
+    <div class="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg" id="success-message">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            {{ session('success') }}
+        </div>
     </div>
 @endif
 
 @if(session('error'))
-    <div class="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-        {{ session('error') }}
+    <div class="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg" id="error-message">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            {{ session('error') }}
+        </div>
+    </div>
+@endif
+
+@if($errors->any())
+    <div class="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg" id="validation-errors">
+        <div class="flex items-start">
+            <svg class="w-5 h-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <div>
+                <p class="font-medium">Please fix the following errors:</p>
+                <ul class="mt-1 list-disc list-inside text-sm">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     </div>
 @endif
 
@@ -240,7 +268,9 @@
 </div>
 
 <!-- Tab Content with Navigation -->
-<div x-data="{ activeTab: 'robots' }">
+<div x-data="{ 
+    activeTab: @if(session('success') && (str_contains(session('success'), 'SEO settings') || str_contains(session('success'), 'Favicon'))) 'seo-settings' @elseif(session('error') && (str_contains(session('error'), 'SEO settings') || str_contains(session('error'), 'Favicon'))) 'seo-settings' @else 'robots' @endif 
+}">
     <!-- Tabs Navigation -->
     <div class="mb-6">
         <nav class="flex space-x-8">
@@ -667,6 +697,48 @@ function removeFavicon() {
         form.submit();
     }
 }
+
+// Debug form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const seoForm = document.querySelector('form[action*="update-seo-settings"]');
+    if (seoForm) {
+        seoForm.addEventListener('submit', function(e) {
+            console.log('SEO Form submitting...', {
+                action: this.action,
+                method: this.method,
+                hasFile: this.querySelector('input[type="file"]').files.length > 0
+            });
+        });
+    }
+    
+    // Check for session messages and scroll to them
+    @if(session('success'))
+        console.log('Success message present:', '{{ session('success') }}');
+        const successMsg = document.getElementById('success-message');
+        if (successMsg) {
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Add a subtle animation
+            successMsg.style.animation = 'pulse 2s ease-in-out';
+        }
+    @endif
+    
+    @if(session('error'))
+        console.log('Error message present:', '{{ session('error') }}');
+        const errorMsg = document.getElementById('error-message');
+        if (errorMsg) {
+            errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            errorMsg.style.animation = 'pulse 2s ease-in-out';
+        }
+    @endif
+    
+    @if($errors->any())
+        const validationMsg = document.getElementById('validation-errors');
+        if (validationMsg) {
+            validationMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            validationMsg.style.animation = 'pulse 2s ease-in-out';
+        }
+    @endif
+});
 </script>
 @endpush
 @endsection

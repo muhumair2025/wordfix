@@ -1,0 +1,17 @@
+{
+    "base_url": "https://wordfix.com",
+    "default_changefreq": "monthly",
+    "default_priority": 0.7,
+    "homepage_priority": 1.0,
+    "category_priority": 0.8,
+    "tool_priority": 0.7,
+    "exclude_pages": [
+        "/admin",
+        "/login",
+        "/register",
+        "/password"
+    ],
+    "include_lastmod": true,
+    "auto_generate": false,
+    "updated_at": "2024-11-27T00:00:00.000Z"
+}

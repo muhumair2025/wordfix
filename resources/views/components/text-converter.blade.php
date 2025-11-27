@@ -3,7 +3,8 @@
     'inputPlaceholder' => 'Type or paste your content here',
     'outputPlaceholder' => 'Converted text will appear here',
     'showStats' => true,
-    'downloadFileName' => 'converted-text.txt'
+    'downloadFileName' => 'converted-text.txt',
+    'outputType' => 'textarea' // 'textarea' or 'div'
 ])
 
 <div class="text-converter-wrapper">
@@ -14,6 +15,7 @@
             <textarea 
                 id="{{ $toolId }}-input"
                 class="w-full h-64 p-4 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm"
+                style="font-family: inherit; line-height: 1.5; min-height: 16rem; max-height: 16rem;"
                 placeholder="{{ $inputPlaceholder }}"
             ></textarea>
             <!-- Input Buttons - Compact Icons -->
@@ -55,12 +57,22 @@
         
         <!-- Output Section -->
         <div>
+            @if($outputType === 'div')
+            <div 
+                id="{{ $toolId }}-output"
+                class="w-full h-64 p-4 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm bg-gray-50 overflow-auto whitespace-pre-wrap break-words text-gray-400"
+                style="cursor: text; font-family: inherit; line-height: 1.5; min-height: 16rem; max-height: 16rem;"
+                data-placeholder="{{ $outputPlaceholder }}"
+            ></div>
+            @else
             <textarea 
                 id="{{ $toolId }}-output"
                 class="w-full h-64 p-4 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm bg-gray-50"
+                style="font-family: inherit; line-height: 1.5; min-height: 16rem; max-height: 16rem;"
                 placeholder="{{ $outputPlaceholder }}"
                 readonly
             ></textarea>
+            @endif
             <!-- Output Buttons - Compact Icons -->
             <div class="flex flex-wrap gap-1.5 mt-2">
                 <button 
@@ -115,6 +127,7 @@
     const inputText = document.getElementById(toolId + '-input');
     const outputText = document.getElementById(toolId + '-output');
     const downloadFileName = '{{ $downloadFileName }}';
+    const outputType = '{{ $outputType }}';
     
     // Conversion function (will be set from parent)
     let conversionFunction = (text) => text;
@@ -127,7 +140,20 @@
     // Main conversion
     function convert() {
         if (inputText && outputText && typeof conversionFunction === 'function') {
-            outputText.value = conversionFunction(inputText.value);
+            const converted = conversionFunction(inputText.value);
+            if (outputType === 'div') {
+                if (converted) {
+                    outputText.textContent = converted;
+                    outputText.classList.remove('text-gray-400');
+                    outputText.classList.add('text-gray-900');
+                } else {
+                    outputText.textContent = outputText.getAttribute('data-placeholder');
+                    outputText.classList.remove('text-gray-900');
+                    outputText.classList.add('text-gray-400');
+                }
+            } else {
+                outputText.value = converted;
+            }
             updateStats();
         }
     }
@@ -219,32 +245,60 @@
     };
     
     window[toolId + 'Copy'] = function() {
-        if (!outputText.value) {
+        const text = outputType === 'div' ? outputText.textContent : outputText.value;
+        const placeholder = outputType === 'div' ? outputText.getAttribute('data-placeholder') : '';
+        
+        if (!text || (outputType === 'div' && (text === placeholder || outputText.classList.contains('text-gray-400')))) {
             showToast('No text to copy!', 'error');
             return;
         }
         
         // Try modern clipboard API first
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(outputText.value).then(() => {
+            navigator.clipboard.writeText(text).then(() => {
                 showToast('Text copied to clipboard!', 'success');
             }).catch(() => {
                 // Fallback to old method
-                outputText.select();
-                document.execCommand('copy');
+                if (outputType === 'textarea') {
+                    outputText.select();
+                    document.execCommand('copy');
+                } else {
+                    fallbackCopy(text);
+                }
                 showToast('Text copied to clipboard!', 'success');
             });
         } else {
             // Fallback for older browsers
-            outputText.select();
-            document.execCommand('copy');
+            if (outputType === 'textarea') {
+                outputText.select();
+                document.execCommand('copy');
+            } else {
+                fallbackCopy(text);
+            }
             showToast('Text copied to clipboard!', 'success');
         }
     };
     
+    function fallbackCopy(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            // Error handled by parent function
+        }
+        document.body.removeChild(textArea);
+    }
+    
     window[toolId + 'Download'] = function() {
-        const text = outputText.value;
-        if (!text) {
+        const text = outputType === 'div' ? outputText.textContent : outputText.value;
+        const placeholder = outputType === 'div' ? outputText.getAttribute('data-placeholder') : '';
+        
+        if (!text || (outputType === 'div' && (text === placeholder || outputText.classList.contains('text-gray-400')))) {
             showToast('No text to download!', 'error');
             return;
         }
@@ -260,12 +314,24 @@
     
     window[toolId + 'Clear'] = function() {
         inputText.value = '';
-        outputText.value = '';
+        if (outputType === 'div') {
+            outputText.textContent = outputText.getAttribute('data-placeholder');
+            outputText.classList.remove('text-gray-900');
+            outputText.classList.add('text-gray-400');
+        } else {
+            outputText.value = '';
+        }
         updateStats();
     };
     
     window[toolId + 'ClearOutput'] = function() {
-        outputText.value = '';
+        if (outputType === 'div') {
+            outputText.textContent = outputText.getAttribute('data-placeholder');
+            outputText.classList.remove('text-gray-900');
+            outputText.classList.add('text-gray-400');
+        } else {
+            outputText.value = '';
+        }
     };
     
     // Toast notification function
@@ -285,6 +351,9 @@
     }
     
     // Initialize
+    if (outputType === 'div') {
+        outputText.textContent = outputText.getAttribute('data-placeholder');
+    }
     updateStats();
 })();
 </script>

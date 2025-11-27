@@ -1,2 +1,12 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /profile
+
+# Allow all other pages
+Allow: /
+
+# Sitemap
+Sitemap: https://wordfix.com/sitemap.xml

@@ -145,6 +145,14 @@
                     </svg>
                     Mail Settings
                 </a>
+
+                <a href="{{ route('admin.seo.index') }}" 
+                   class="flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 {{ request()->is('admin/seo*') ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600' : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900' }}">
+                    <svg class="w-5 h-5 mr-3 {{ request()->is('admin/seo*') ? 'text-blue-600' : 'text-gray-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    SEO Settings
+                </a>
             </nav>
 
             <!-- User Profile Section -->

@@ -54,6 +54,23 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Pages Management
     Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
+    
+    // SEO Management
+    Route::prefix('seo')->name('seo.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\SeoController::class, 'index'])->name('index');
+        Route::post('/robots', [\App\Http\Controllers\Admin\SeoController::class, 'updateRobots'])->name('update-robots');
+        Route::post('/sitemap', [\App\Http\Controllers\Admin\SeoController::class, 'generateSitemap'])->name('generate-sitemap');
+        Route::post('/home-meta', [\App\Http\Controllers\Admin\SeoController::class, 'updateHomeMeta'])->name('update-home-meta');
+        Route::get('/tool-meta', [\App\Http\Controllers\Admin\SeoController::class, 'toolMeta'])->name('tool-meta');
+        Route::post('/tool-meta', [\App\Http\Controllers\Admin\SeoController::class, 'updateToolMeta'])->name('update-tool-meta');
+        Route::post('/tool-meta/bulk', [\App\Http\Controllers\Admin\SeoController::class, 'bulkUpdateToolMeta'])->name('bulk-update-tool-meta');
+        Route::get('/sitemap-config', [\App\Http\Controllers\Admin\SeoController::class, 'sitemapConfig'])->name('sitemap-config');
+        Route::post('/sitemap-config', [\App\Http\Controllers\Admin\SeoController::class, 'updateSitemapConfig'])->name('update-sitemap-config');
+        Route::post('/sync-tools', [\App\Http\Controllers\Admin\SeoController::class, 'syncNewTools'])->name('sync-tools');
+        Route::get('/debug-tools', [\App\Http\Controllers\Admin\SeoController::class, 'debugToolCount'])->name('debug-tools');
+        Route::post('/seo-settings', [\App\Http\Controllers\Admin\SeoController::class, 'updateSeoSettings'])->name('update-seo-settings');
+        Route::delete('/favicon', [\App\Http\Controllers\Admin\SeoController::class, 'removeFavicon'])->name('remove-favicon');
+    });
 });
 
 // Tool Routes - All individual tool routes

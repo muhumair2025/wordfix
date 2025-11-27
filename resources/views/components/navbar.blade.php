@@ -1,6 +1,7 @@
 <nav x-data="{ 
     mobileMenuOpen: false,
     activeDropdown: null,
+    isNavInitialized: false,
     menus: {
         'basic': {
             title: 'Basic',
@@ -181,8 +182,14 @@
                 { name: 'TextFlow Pipeline', url: '/studio/text-flow' }
             ]
         }
+    },
+    init() {
+        // Initialize navbar after small delay to prevent flickering
+        setTimeout(() => {
+            this.isNavInitialized = true;
+        }, 50);
     }
-}" class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50" :class="{'bg-gray-900 border-gray-700': document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark'}">
+}" x-init="init()" class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50" :class="{'bg-gray-900 border-gray-700': document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark'}">
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <!-- Two-row layout for laptop and desktop screens (lg to 2xl) -->
         <div class="hidden lg:flex 2xl:hidden flex-col">
@@ -479,20 +486,22 @@
                                 <span class="theme-text"></span>
                             </button>
                             
-                            <a href="{{ route('login') }}" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200"
-                               :class="{'text-blue-300 bg-blue-900 hover:bg-blue-800': document.body.getAttribute('data-theme') === 'dark'}">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
-                                </svg>
-                                Login
-                            </a>
-                            <a href="{{ route('register') }}" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                               :class="{'bg-blue-700 hover:bg-blue-600': document.body.getAttribute('data-theme') === 'dark'}">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
-                                </svg>
-                                Register
-                            </a>
+                            <div x-show="isNavInitialized" x-transition>
+                                <a href="{{ route('login') }}" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200"
+                                   :class="{'text-blue-300 bg-blue-900 hover:bg-blue-800': document.body.getAttribute('data-theme') === 'dark'}">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                                    </svg>
+                                    Login
+                                </a>
+                                <a href="{{ route('register') }}" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                                   :class="{'bg-blue-700 hover:bg-blue-600': document.body.getAttribute('data-theme') === 'dark'}">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                                    </svg>
+                                    Register
+                                </a>
+                            </div>
                         </div>
                     </div>
                 @endauth

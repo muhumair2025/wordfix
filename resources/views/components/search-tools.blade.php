@@ -4,6 +4,7 @@ function createSearchComponent() {
         isOpen: false,
         searchQuery: '',
         selectedIndex: -1,
+        isInitialized: false,
         allTools: [
             // Basic Tools
             { name: 'Alternate Case', url: '/basic/alternate-case', category: 'Basic', description: 'Convert text to alternating uppercase and lowercase letters', keywords: ['alternate', 'case', 'mixed', 'toggle'] },
@@ -151,6 +152,11 @@ function createSearchComponent() {
         
         // AI-powered semantic search
         get filteredTools() {
+            // Don't show any results until component is properly initialized
+            if (!this.isInitialized) {
+                return [];
+            }
+            
             if (!this.searchQuery.trim()) {
                 return this.allTools.slice(0, 8); // Show first 8 tools when no search
             }
@@ -340,15 +346,23 @@ function createSearchComponent() {
         },
         
         init() {
+            // Initialize component after a small delay to prevent flickering
+            setTimeout(() => {
+                this.isInitialized = true;
+            }, 100);
+            
             // Ensure dropdown stays open when interacting with it
             this.$watch('searchQuery', () => {
-                if (this.searchQuery.length > 0) {
+                if (this.searchQuery.length > 0 && this.isInitialized) {
                     this.isOpen = true;
                 }
             });
         },
         
         openDropdown() {
+            // Only open if component is initialized
+            if (!this.isInitialized) return;
+            
             // Use setTimeout to prevent immediate closing from click.away
             setTimeout(() => {
                 this.isOpen = true;
@@ -447,7 +461,7 @@ function createSearchComponent() {
             </template>
             
             <!-- No Results -->
-            <div x-show="searchQuery && filteredTools.length === 0" class="px-4 py-8 text-center">
+            <div x-show="searchQuery && filteredTools.length === 0 && isInitialized" class="px-4 py-8 text-center">
                 <svg class="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.467.881-6.077 2.33l-.853-.853A9.967 9.967 0 0112 13c3.536 0 6.635 1.84 8.4 4.6l-.853.853A8.013 8.013 0 0012 15z"/>
                 </svg>
@@ -456,7 +470,7 @@ function createSearchComponent() {
             </div>
             
             <!-- Quick Tips -->
-            <div x-show="!searchQuery" class="px-4 py-3 bg-gray-50 border-t border-gray-100">
+            <div x-show="!searchQuery && isInitialized" class="px-4 py-3 bg-gray-50 border-t border-gray-100">
                 <p class="text-xs text-gray-600 mb-2 font-medium">Quick Tips:</p>
                 <div class="grid grid-cols-2 gap-2 text-xs text-gray-500">
                     <div>• "make uppercase" → Upper Case</div>

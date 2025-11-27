@@ -5,7 +5,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title', config('app.name', 'Laravel'))</title>
+        @php
+            $meta = \App\Helpers\MetaHelper::getCurrentMeta();
+            $seoSettings = \App\Helpers\MetaHelper::getSeoSettings();
+        @endphp
+        
+        <title>@yield('title', $meta['title'])</title>
+        <meta name="description" content="@yield('description', $meta['description'])">
+        <meta name="keywords" content="@yield('keywords', $meta['keywords'])">
+        
+        <!-- Favicon -->
+        @if($seoSettings['favicon_uploaded'] && $seoSettings['favicon_path'])
+            <link rel="icon" type="image/x-icon" href="{{ $seoSettings['favicon_path'] }}">
+            <link rel="shortcut icon" type="image/x-icon" href="{{ $seoSettings['favicon_path'] }}">
+            <link rel="apple-touch-icon" href="{{ $seoSettings['favicon_path'] }}">
+        @else
+            <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        @endif
+        
+        <!-- Search Engine Verification -->
+        @if(!empty($seoSettings['google_site_verification']))
+            <meta name="google-site-verification" content="{{ $seoSettings['google_site_verification'] }}">
+        @endif
+        @if(!empty($seoSettings['bing_site_verification']))
+            <meta name="msvalidate.01" content="{{ $seoSettings['bing_site_verification'] }}">
+        @endif
+        @if(!empty($seoSettings['yandex_site_verification']))
+            <meta name="yandex-verification" content="{{ $seoSettings['yandex_site_verification'] }}">
+        @endif
+        @if(!empty($seoSettings['pinterest_site_verification']))
+            <meta name="p:domain_verify" content="{{ $seoSettings['pinterest_site_verification'] }}">
+        @endif
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="@yield('title', $meta['title'])">
+        <meta property="og:description" content="@yield('description', $meta['description'])">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:site_name" content="WordFix">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="@yield('title', $meta['title'])">
+        <meta name="twitter:description" content="@yield('description', $meta['description'])">
+        
+        <!-- Custom Head Tags -->
+        @if(!empty($seoSettings['custom_head_tags']))
+            {!! $seoSettings['custom_head_tags'] !!}
+        @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +71,9 @@
         
         <!-- High Contrast Professional Dark Mode -->
         <style>
+            /* Alpine.js x-cloak directive to prevent flickering */
+            [x-cloak] { display: none !important; }
+            
             /* High Contrast Dark Mode - Perfect Text Visibility */
             
             /* Dark Mode Base */

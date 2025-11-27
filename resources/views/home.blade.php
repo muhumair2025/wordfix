@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'WordFix - Free Online Text Tools')
+@php
+    $homeMeta = \App\Helpers\MetaHelper::getHomeMeta();
+@endphp
+
+@section('title', $homeMeta['title'])
+@section('description', $homeMeta['description'])
+@section('keywords', $homeMeta['keywords'])
 
 @section('content')
 <div class="py-6 md:py-8 pb-8">

@@ -1,5 +1,21 @@
 @extends('layouts.app')
 
+@php
+    // Get current route info for meta data
+    $route = request()->route();
+    $uri = $route ? $route->uri() : '';
+    
+    // Extract category and tool from URI
+    if (preg_match('/^([^\/]+)\/([^\/]+)$/', $uri, $matches)) {
+        $category = $matches[1];
+        $toolSlug = $matches[2];
+        $toolMeta = \App\Helpers\MetaHelper::getToolMeta($category, $toolSlug);
+        
+        // Override meta data for this tool
+        View::share('meta', $toolMeta);
+    }
+@endphp
+
 @section('content')
 <div class="py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
